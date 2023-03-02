@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料集對應 / 病患基本資料 | HIS- FHIR對應系統</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css">
+    <script src="js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./font-awesome/js/all.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css" href="./css/datatables.min.css" />
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+
+    <!-- chart.js -->
+    <script src="./js/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <script src="./headerScript.js"></script>
+    <script>
+        $("header").load("./header.html", () => {
+            getMenutree();
+            afterGetHeader();
+        });
+    </script>
+    <div class="d-flex position-relative">
+        <div class="menu-holder"></div>
+        <section class="position-relative" id="system-main">
+            <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
+                <div class="card text-gray-800 w-100 mb-4">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h4>匯入資料表欄位 - 使用指令</h4>
+                        </div>
+                    </div>
+                    <div class="row card-body">
+                        <div class="col-12">
+                            <div>
+                                <h5>Profile: <span class="text-primary">Patient</span></h5>
+                            </div>
+                            <div class="d-flex">
+                                <h5 class="me-2">SQL:</h5>
+                                <textarea name="" id="" rows="5" class="w-100 form-control">
+SELECT  *
+FROM pat_info
+WHERE id_no != ''
+                                </textarea>
+                            </div>
+                            <div class="my-3">
+                                <button class="btn btn-primary">檢測並執行</button>
+                                <button class="btn btn-primary" disabled>匯入</button>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="position-relative w-100">
+                                <h6>執行結果：</h6>
+                                <div class="overflow-auto position-relative" style="min-height: 330px;">
+                                    <img src="./images/sqltemp.png" alt="" class="position-absolute"
+                                        style="width: fit-content;height:fit-content;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-gray-800 w-100 mb-4" style="max-width: calc(100vw - var(--menu-width) - 6rem - 20px);">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h4>對應匯入欄位</h4>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary">儲存</button>
+                            <button class="btn btn-primary" disabled>匯出</button>
+                        </div>
+                    </div>
+                    <div class="row card-body">
+                        <div class="col-12 overflow-auto">
+                            <table id="sourceTable" class="table table-striped position-relative">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 4rem;">項次</th>
+                                        <th>已對應</th>
+                                        <th>FHIR欄位名稱</th>
+                                        <th>FHIR欄位型態</th>
+                                        <th>FHIR欄位說明</th>
+                                        <th>對應資料表</th>
+                                        <th>對應欄位</th>
+                                        <th>對應欄位型態</th>
+                                        <th>代碼對應</th>
+                                        <th>進階編輯</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td style="color: red;">V</td>
+                                        <td>年齡</td>
+                                        <td>integer</td>
+                                        <td>...</td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <button class="btn btn-primary" style="white-space: nowrap;">
+                                                條件設定
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td style="color: red;">V</td>
+                                        <td>年齡</td>
+                                        <td>integer</td>
+                                        <td>...</td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <button class="btn btn-primary" style="white-space: nowrap;">
+                                                條件設定
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td style="color: red;">V</td>
+                                        <td>年齡</td>
+                                        <td>integer</td>
+                                        <td>...</td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <button class="btn btn-primary" style="white-space: nowrap;">
+                                                條件設定
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td style="color: red;">V</td>
+                                        <td>年齡</td>
+                                        <td>integer</td>
+                                        <td>...</td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="" id="">
+                                                <option value="">pat_info</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <button class="btn btn-primary" style="white-space: nowrap;">
+                                                條件設定
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modify</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Road Number</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" class="form-control"
+                                        placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Direction</div>
+                                <div class="col-md-12">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                        <option value="0">ALL</option>
+                                        <option value="2">North</option>
+                                        <option value="6">South</option>
+                                        <option value="7">East</option>
+                                        <option value="8">West</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Sequence No.</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" class="form-control"
+                                        placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Gateway No.</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" class="form-control"
+                                        placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Gateway Name</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" class="form-control"
+                                        placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Status</div>
+                                <div class="col-md-12">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                        <option value="0">Active</option>
+                                        <option value="0">Disable</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-none title-name">資料集對應 / 病患基本資料</div>
+</body>
+<script>
+    // DataTable
+    var table = $('#sourceTable').DataTable({
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change clear', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+        }
+        , searching: false
+    });
+
+    document.getElementById('exampleModal').addEventListener('hidden.bs.modal', function (event) {
+        // do something...
+        $("#exampleModalLabel").text("Modify");
+    })
+</script>
+
+</html>
