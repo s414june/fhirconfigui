@@ -354,7 +354,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   left: 0;
   z-index: 4;
   background: var(--bs-primary);
-  min-height: 4.5rem;
+  /* min-height: 4.5rem; */
 }
 /* .title-container {
   transform: translateX(-8px);
@@ -758,9 +758,9 @@ th {
     width: calc(100vw - 120px);
   }
 }
-.row {
+/* .row {
   align-items: flex-end;
-}
+} */
 .modal-xl {
   max-width: calc(100% - 20px);
   width: 1600px;
