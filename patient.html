@@ -40,8 +40,28 @@
     <div class="d-flex position-relative">
         <div class="menu-holder"></div>
         <section class="position-relative" id="system-main">
+            <div class="d-flex justify-content-end mx-xl-5 position-sticky">
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="offcanvas-btn">
+                    <img src="./images/bars-staggered-solid.svg" alt="" class="">
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <p>
+                        <a href="#_version" class="text-primary">匯入資料表欄位</a>
+                    </p>
+                    <p>
+                        <a href="#_version" class="text-primary">統計 - 資料集對應</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
-                <div class="card text-gray-800 w-100 mb-4">
+                <div class="card text-gray-800 w-100 mb-5">
+                    <div class="hash-offset"  id="_import"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>匯入資料表欄位 - 使用指令</h4>
@@ -60,7 +80,7 @@ FROM pat_info
 WHERE id_no != ''
                                 </textarea>
                             </div>
-                            <div class="my-3">
+                            <div class="">
                                 <button class="btn btn-primary">檢測並執行</button>
                                 <button class="btn btn-primary" disabled>匯入</button>
                             </div>
@@ -76,8 +96,9 @@ WHERE id_no != ''
                         </div>
                     </div>
                 </div>
-                <div class="card text-gray-800 w-100 mb-4"
-                    style="max-width: calc(100vw - var(--menu-width) - 6rem - 20px);">
+                <div class="card text-gray-800 w-100 mb-5"
+                    style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
+                    <div class="hash-offset"  id="_col"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>對應匯入欄位</h4>
@@ -109,7 +130,7 @@ WHERE id_no != ''
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#_details">
                                                 詳細
                                             </a>
                                         </td>
@@ -136,7 +157,7 @@ WHERE id_no != ''
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#_details">
                                                 詳細
                                             </a>
                                         </td>
@@ -163,7 +184,7 @@ WHERE id_no != ''
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#_details">
                                                 詳細
                                             </a>
                                         </td>
@@ -190,7 +211,7 @@ WHERE id_no != ''
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#_details">
                                                 詳細
                                             </a>
                                         </td>
@@ -219,8 +240,9 @@ WHERE id_no != ''
                         </div>
                     </div>
                 </div>
-                <div class="card text-gray-800 w-100 mb-4"
-                    style="max-width: calc(100vw - var(--menu-width) - 6rem - 20px);" id="details">
+                <div class="card text-gray-800 w-100 mb-5"
+                    style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
+                    <div class="hash-offset"  id="_details"></div>
                     <div class="card-header d-flex justify-content-between bg-primary">
                         <div class="d-flex align-items-center">
                             <h4 class="text-white m-0">詳細資料 - 年齡</h4>

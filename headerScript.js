@@ -16,6 +16,13 @@ let menuDatas = {
         },
         {
             "Name": "",
+            "DisplayName": "連線設定",
+            "Url": "./connectdb.html",
+            "Type": "A",
+            "Ul": null
+        },
+        {
+            "Name": "",
             "DisplayName": "資料集對應",
             "Url": "./sourceData.html",
             "Type": "M",
@@ -227,12 +234,22 @@ function afterGetHeader() {
     // }
 
     // $("#system-main").append(`<div id="all-bg-image"></div>`);
-    $(".goto-url").click((e) => {
-        let href = $(e.currentTarget).attr("href");
-        location.assign(href);
-    })
-    $(function(){
-        if($(".title-name").text())
+    $(function () {
+        if ($(".title-name").text())
             $("#title h5").text($(".title-name").text());
+        $(".goto-url").click((e) => {
+            let href = $(e.currentTarget).attr("href");
+            location.assign(href);
+        })
+        $("#offcanvasRight .offcanvas-body").html("");
+        $(".hash-offset").each((i, hash_ele) => {
+            let hash = "#" + $(hash_ele).attr("id");
+            let txt = $(hash_ele).parent().find(".card-header h4").text();
+            $("#offcanvasRight .offcanvas-body").append(`
+            <p>
+                <a href="${hash}" class="text-primary">${txt}</a>
+            </p>
+            `);
+        })
     })
 }

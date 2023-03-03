@@ -1,3 +1,4 @@
+// @ts-nocheck
 let vh = window.innerHeight * 0.01;
 
 function VerifyUser() {
@@ -27,7 +28,8 @@ function collapseMenu() {
     $(".menu-holder").addClass("collapsed");
     $(".hide-when-collapsed").removeClass("show").addClass("hide");
     $("#TableOutside").addClass("collapsed");
-    $("html").css("--menu-width", "45px");
+    let w = $(window).width() < 576 ? "0px" : "45px";
+    $("html").css("--menu-width", w);
 }
 
 function openCollapsedMenu() {
@@ -43,7 +45,7 @@ function openCollapsedMenu() {
         $("#menu").removeClass("collapsed");
         $(".menu-holder").removeClass("collapsed");
         $("#TableOutside").removeClass("collapsed");
-        $("html").css("--menu-width", "400px");
+        $("html").css("--menu-width", "350px");
     }
 }
 
@@ -70,6 +72,6 @@ $(window).scroll(() => {
     }
 })
 
-function query(){
-    
+function query() {
+
 }

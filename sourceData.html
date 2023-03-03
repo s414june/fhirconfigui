@@ -40,15 +40,35 @@
     <div class="d-flex position-relative">
         <div class="menu-holder"></div>
         <section class="position-relative" id="system-main">
+            <div class="d-flex justify-content-end mx-xl-5 position-sticky">
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="offcanvas-btn">
+                    <img src="./images/bars-staggered-solid.svg" alt="" class="">
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <p>
+                        <a href="#_version" class="text-primary">匯入資料表欄位</a>
+                    </p>
+                    <p>
+                        <a href="#_version" class="text-primary">統計 - 資料集對應</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
-                <div class="card text-gray-800 w-100 mb-4">
+                <div class="card text-gray-800 w-100 mb-5">
+                    <div class="hash-offset"  id="_version"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>FHIR版本 - 4.0.1</h4>
                         </div>
                         <button class="btn btn-primary">切換版本</button>
                     </div>
-                    <div class="row card-body">
+                    <div class="row card-body" id="_version">
                         <table id="sourceTable" class="table table-striped">
                             <thead>
                                 <tr>
@@ -64,8 +84,10 @@
                                     <td>1</td>
                                     <td>病患基本資料</td>
                                     <td>Patient</td>
-                                    <td>
-                                        已對應
+                                    <td class="d-flex">
+                                        <p>
+                                            已對應
+                                        </p>
                                         <a class="btn-sm btn-outline-danger mx-1" href="./patient.html">編輯</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
@@ -74,8 +96,10 @@
                                     <td>1</td>
                                     <td>病患基本資料</td>
                                     <td>Patient</td>
-                                    <td>
-                                        已對應
+                                    <td class="d-flex">
+                                        <p>
+                                            已對應
+                                        </p>
                                         <a class="btn-sm btn-outline-danger mx-1" href="./patient.html">編輯</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
@@ -84,8 +108,10 @@
                                     <td>1</td>
                                     <td>病患基本資料</td>
                                     <td>Patient</td>
-                                    <td>
-                                        已對應
+                                    <td class="d-flex">
+                                        <p>
+                                            已對應
+                                        </p>
                                         <a class="btn-sm btn-outline-danger mx-1" href="./patient.html">編輯</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
@@ -94,8 +120,10 @@
                                     <td>4</td>
                                     <td>藥物開立紀錄</td>
                                     <td>Patient</td>
-                                    <td>
-                                        未對應
+                                    <td class="d-flex">
+                                        <p>
+                                            已對應
+                                        </p>
                                         <a class="btn-sm btn-outline-info mx-1" href="./patient.html">對應</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
@@ -104,7 +132,8 @@
                         </table>
                     </div>
                 </div>
-                <div class="card text-gray-800 w-100 mb-4">
+                <div class="card text-gray-800 w-100 mb-5">
+                    <div class="hash-offset"  id="_total"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>統計 - 資料集對應</h4>
@@ -218,6 +247,12 @@
     </div>
     <div class="d-none title-name">資料集對應</div>
 </body>
+<style>
+    .btn-sm {
+        white-space: nowrap;
+        height: fit-content;
+    }
+</style>
 <script>
     // DataTable
     var table = $('#sourceTable').DataTable({
