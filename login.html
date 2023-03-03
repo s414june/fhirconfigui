@@ -37,15 +37,15 @@
 
 <body>
     <div class="w-100 d-flex flex-column" id="login-container">
-        <nav>
-            <div class="position-relative w-100 h-100 ps-5 d-flex align-items-center"
+        <nav class="position-relative" id="title">
+            <div class="position-relative w-100 h-100 ps-md-5 px-2 d-flex align-items-center"
                 style="background-color: rgba(240, 248, 255, 0.3);backdrop-filter: brightness(69%) contrast(115%);">
                 <h2 class="text-white" style="font-weight: 400;">檢疫者心理量測與遠距諮詢系統</h2>
             </div>
         </nav>
-        <div class="d-flex">
-            <div class="p-3 flex-grow-1">
-                <div>
+        <div class="d-flex flex-wrap flex-lg-nowrap w-100">
+            <div class="flex-grow-1 order-2 order-lg-1">
+                <div class="m-lg-3 m-2">
                     <div class="position-relative w-100">
                         <ul class="nav nav-tabs">
                             <li class="nav-item border-bottom border-5"
@@ -55,30 +55,30 @@
                         </ul>
                         <button class="btn-primary btn position-absolute" style="bottom:8px;right: 0;">更多消息</button>
                     </div>
-                    <div class="py-5 d-flex">
-                        <img src="./images/demo1.png" alt="" style="width:300px;">
+                    <div class="py-5 d-flex flex-wrap">
+                        <img src="./images/demo1.png" alt="" style="width:300px;max-width:100%" ;>
                         <div class="px-4 py-3">
                             <h4 class="mb-4">【活動】馬拉松開跑囉!!</h2>
                                 <a href="">詳細內容...</a>
                         </div>
                     </div>
-                    <div class="py-5 d-flex">
-                        <img src="./images/demo2.png" alt="" style="width:300px;">
+                    <div class="py-5 d-flex flex-wrap">
+                        <img src="./images/demo2.png" alt="" style="width:300px;max-width:100%" ;>
                         <div class="px-4 py-3">
                             <h4 class="mb-4">
                                 出門踏青有助於紓壓</h2>
                                 <a href="">詳細內容...</a>
                         </div>
                     </div>
-                    <div class="py-5 d-flex">
-                        <img src="./images/demo1.png" alt="" style="width:300px;">
+                    <div class="py-5 d-flex flex-wrap">
+                        <img src="./images/demo1.png" alt="" style="width:300px;max-width:100%" ;>
                         <div class="px-4 py-3">
                             <h4 class="mb-4">【活動】馬拉松開跑囉!!</h2>
                                 <a href="">詳細內容...</a>
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="m-lg-3 m-2">
                     <div class="position-relative w-100">
                         <ul class="nav nav-tabs">
                             <li class="nav-item border-bottom border-5"
@@ -88,16 +88,16 @@
                         </ul>
                         <button class="btn-primary btn position-absolute" style="bottom:8px;right: 0;">更多衛教資訊</button>
                     </div>
-                    <div class="py-5 d-flex">
-                        <img src="./images/demo3.png" alt="" style="width:300px;">
+                    <div class="py-5 d-flex flex-wrap">
+                        <img src="./images/demo3.png" alt="" style="width:300px;max-width:100%" ;>
                         <div class="px-4 py-3">
                             <h4 class="mb-4">
                                 每天做瑜珈半小時 有助於情緒紓壓</h2>
                                 <a href="">詳細內容...</a>
                         </div>
                     </div>
-                    <div class="py-5 d-flex">
-                        <img src="./images/demo3.png" alt="" style="width:300px;">
+                    <div class="py-5 d-flex flex-wrap">
+                        <img src="./images/demo3.png" alt="" style="width:300px;max-width:100%" ;>
                         <div class="px-4 py-3">
                             <h4 class="mb-4">
                                 每天做瑜珈半小時 有助於情緒紓壓</h2>
@@ -106,32 +106,19 @@
                     </div>
                 </div>
             </div>
-            <div class="position-sticky m-3" style="top: 2rem;height: fit-content;">
-                <!-- <div class="position-relative w-100">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item w-50 text-center" data-bs-toggle="tab"
-                        data-bs-target="#nav-home" >
-                            <a class="nav-link fs-5" aria-current="page" href="#">會員登入</a>
-                        </li>
-                        <li class="nav-item w-50 text-center" data-bs-toggle="tab"
-                        data-bs-target="#nav-profile" >
-                        <a class="nav-link fs-5 active" aria-current="page" href="#">我是專家</a>
-                    </li>
-                    </ul>
-                </div> -->
+            <div class="m-3 order-1 order-lg-1" id="loginPlace">
                 <nav class="position-relative w-100">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link w-50 text-center fs-5" id="nav-home-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                             aria-selected="true">會員登入</button>
                         <button class="nav-link w-50 text-center fs-5 active" id="nav-profile-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-profile" type="button" role="tab"
-                            aria-controls="nav-profile" aria-selected="false">我是專家</button>
+                            data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">我是專家</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade" id="nav-home" role="tabpanel"
-                        aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="card shadow-sm" id="loginCard">
                             <div class="card-body position-relative px-5">
                                 <div class="py-3">
@@ -142,26 +129,33 @@
                                         <label for="floatingAccount_normal">請輸入帳號(身份證字號)</label>
                                     </div>
                                     <div class="form-check py-2">
-                                        <input class="form-check-input" type="checkbox" value="" id="rememberAccount" checked>
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberAccount"
+                                            checked>
                                         <label class="form-check-label text-secondary" for="rememberAccount">
-                                           記住帳號
+                                            記住帳號
                                         </label>
                                     </div>
                                 </div>
                                 <div class="py-3">
                                     <label for="floatingPassword_normal" class="mb-2">密碼</label>
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" id="floatingPassword_normal" placeholder="Password"  value="">
+                                        <input type="password" class="form-control" id="floatingPassword_normal"
+                                            placeholder="Password" value="">
                                         <label for="floatingPassword_normal">請輸入密碼</label>
                                     </div>
                                     <div class="form-check py-2">
-                                        <input class="form-check-input" type="checkbox" value="" id="rememberPassword" checked>
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberPassword"
+                                            checked>
                                         <label class="form-check-label text-secondary" for="rememberPassword">
                                             記住密碼
                                         </label>
                                     </div>
                                 </div>
-                                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" onclick="Login()">送出</a>
+                                <div class="d-flex w-100 justify-content-center">
+                                    <div class="d-flex w-100 justify-content-center">
+                                        <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" style="max-width: 300px;" onclick="Login()">送出</a>
+                                    </div>
+                                </div>
                                 <hr class="mt-5" />
                                 <div class="w-100 text-center">
                                     <p>
@@ -189,26 +183,31 @@
                                         <label for="floatingAccount">請輸入帳號(身份證字號)</label>
                                     </div>
                                     <div class="form-check py-2">
-                                        <input class="form-check-input" type="checkbox" value="" id="rememberAccount" checked>
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberAccount"
+                                            checked>
                                         <label class="form-check-label text-secondary" for="rememberAccount">
-                                           記住帳號
+                                            記住帳號
                                         </label>
                                     </div>
                                 </div>
                                 <div class="py-3">
                                     <label for="floatingPassword" class="mb-2">密碼</label>
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"  value="123456">
+                                        <input type="password" class="form-control" id="floatingPassword"
+                                            placeholder="Password" value="123456">
                                         <label for="floatingPassword">請輸入密碼</label>
                                     </div>
                                     <div class="form-check py-2">
-                                        <input class="form-check-input" type="checkbox" value="" id="rememberPassword" checked>
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberPassword"
+                                            checked>
                                         <label class="form-check-label text-secondary" for="rememberPassword">
                                             記住密碼
                                         </label>
                                     </div>
                                 </div>
-                                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" onclick="Login()">送出</a>
+                                <div class="d-flex w-100 justify-content-center">
+                                    <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3"  style="max-width: 300px;" onclick="Login()">送出</a>
+                                </div>
                                 <hr class="mt-5" />
                                 <div class="w-100 text-center">
                                     <p>
@@ -239,10 +238,11 @@
         background-size: cover;
         background-position: 0 30%;
         height: 10vw;
+        min-height: 5rem;
     }
 
     #login-container .card {
-        width: 500px;
+        width: 100%;
     }
 
     #loginCard {
@@ -251,9 +251,30 @@
         border-radius: 0 0 .25rem .25rem;
     }
 
-    @media (max-width: 575px) {
+    #title>div {
+        justify-content: center;
+    }
+
+    #loginPlace {
+        position: relative !important;
+        top: 0;
+        height: fit-content;
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        #loginPlace {
+            position: sticky !important;
+            top: 2rem;
+            width: 500px;
+        }
+
+        #title>div {
+            justify-content: start;
+        }
+
         #login-container .card {
-            width: 100%;
+            width: s;
         }
     }
 </style>
