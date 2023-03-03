@@ -76,7 +76,8 @@ WHERE id_no != ''
                         </div>
                     </div>
                 </div>
-                <div class="card text-gray-800 w-100 mb-4" style="max-width: calc(100vw - var(--menu-width) - 6rem - 20px);">
+                <div class="card text-gray-800 w-100 mb-4"
+                    style="max-width: calc(100vw - var(--menu-width) - 6rem - 20px);">
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>對應匯入欄位</h4>
@@ -100,7 +101,8 @@ WHERE id_no != ''
                                         <th>對應欄位</th>
                                         <th>對應欄位型態</th>
                                         <th>代碼對應</th>
-                                        <th>進階編輯</th>
+                                        <th>篩選條件</th>
+                                        <th>詳細</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -111,23 +113,24 @@ WHERE id_no != ''
                                         <td>integer</td>
                                         <td>...</td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text">
+                                            <input type="text" class="form-control">
                                         </td>
                                         <td>-</td>
+                                        <td>where pat_info<20 and ...</td>
                                         <td>
-                                            <button class="btn btn-primary" style="white-space: nowrap;">
-                                                條件設定
-                                            </button>
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                                詳細
+                                            </a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -137,23 +140,24 @@ WHERE id_no != ''
                                         <td>integer</td>
                                         <td>...</td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text">
+                                            <input type="text" class="form-control">
                                         </td>
                                         <td>-</td>
+                                        <td>where pat_info<20 and ...</td>
                                         <td>
-                                            <button class="btn btn-primary" style="white-space: nowrap;">
-                                                條件設定
-                                            </button>
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                                詳細
+                                            </a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,23 +167,24 @@ WHERE id_no != ''
                                         <td>integer</td>
                                         <td>...</td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text">
+                                            <input type="text" class="form-control">
                                         </td>
                                         <td>-</td>
+                                        <td>where pat_info<20 and ...</td>
                                         <td>
-                                            <button class="btn btn-primary" style="white-space: nowrap;">
-                                                條件設定
-                                            </button>
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                                詳細
+                                            </a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -189,27 +194,99 @@ WHERE id_no != ''
                                         <td>integer</td>
                                         <td>...</td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <select name="" id="">
+                                            <select name="" id="" class="form-select">
                                                 <option value="">pat_info</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text">
+                                            <input type="text" class="form-control">
                                         </td>
                                         <td>-</td>
+                                        <td>where pat_info<20 and ...</td>
                                         <td>
-                                            <button class="btn btn-primary" style="white-space: nowrap;">
-                                                條件設定
-                                            </button>
+                                            <a class="btn btn-primary" style="white-space: nowrap;" href="#details">
+                                                詳細
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-gray-800 w-100 mb-4"
+                    style="max-width: calc(100vw - var(--menu-width) - 6rem - 20px);" id="details">
+                    <div class="card-header d-flex justify-content-between bg-primary">
+                        <div class="d-flex align-items-center">
+                            <h4 class="text-white m-0">詳細資料 - 年齡</h4>
+                        </div>
+                        <div class="bg-white" style="border-radius: 0.25rem;">
+                            <button class="btn btn-outline-primary">套用</button>
+                        </div>
+                    </div>
+                    <div class="row card-body">
+                        <div class="col-md-6">
+                            <h5>欄位FHIR資訊</h5>
+                            <ul>
+                                <li>FHIR欄位名稱：年齡</li>
+                                <li>FHIR欄位型態：integer</li>
+                                <li>FHIR欄位說明：
+                                    <br />
+                                    ~~~
+                                    <br />
+                                    ~~~
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>欄位狀態</h5>
+                            <ul>
+                                <li>狀態：已對應</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <h4 class="text-primary">對應設定</h4>
+                        </div>
+                        <div class="col-md-6 d-flex mb-2 align-items-center">
+                            <label for="_source">對應資料表：</label>
+                            <select name="" id="_source" class="form-select">
+                                <option value="">pat_info</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 d-flex mb-2 align-items-center">
+                            <label for="_col">對應欄位：</label>
+                            <select name="" id="_col" class="form-select">
+                                <option value="">pat_info</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 d-flex mb-2 align-items-center">
+                            <label for="_type">對應欄位型態：</label>
+                            <input type="text" class="form-control" id="_type">
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <h4 class="text-primary">代碼對應設定</h4>
+                        </div>
+                        <div class="col-md-6 d-flex mb-2 align-items-center">
+                            <label for="_code">對應代碼集：</label>
+                            <select name="" id="_code" class="form-select">
+                                <option value="">婚姻狀態對應</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <h4 class="text-primary">篩選條件設定</h4>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            <textarea name="" id="" rows="5" class="w-100 form-control">
+where pat_info<20 and pat_info>5
+                            </textarea>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            <button class="btn btn-primary">檢測</button>
                         </div>
                     </div>
                 </div>
@@ -303,25 +380,18 @@ WHERE id_no != ''
     </div>
     <div class="d-none title-name">資料集對應 / 病患基本資料</div>
 </body>
+<style>
+    label {
+        white-space: nowrap;
+    }
+
+    .form-select,.form-control:not(textarea) {
+        max-width: 300px;
+    }
+</style>
 <script>
     // DataTable
-    var table = $('#sourceTable').DataTable({
-        initComplete: function () {
-            // Apply the search
-            this.api().columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change clear', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });
-        }
-        , searching: false
-    });
+    var table = $('#sourceTable').DataTable({});
 
     document.getElementById('exampleModal').addEventListener('hidden.bs.modal', function (event) {
         // do something...
