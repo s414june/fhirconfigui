@@ -107,57 +107,121 @@
                 </div>
             </div>
             <div class="position-sticky m-3" style="top: 2rem;height: fit-content;">
-                <div class="position-relative w-100">
+                <!-- <div class="position-relative w-100">
                     <ul class="nav nav-tabs">
-                        <li class="nav-item w-50 text-center">
+                        <li class="nav-item w-50 text-center" data-bs-toggle="tab"
+                        data-bs-target="#nav-home" >
                             <a class="nav-link fs-5" aria-current="page" href="#">會員登入</a>
                         </li>
-                        <li class="nav-item w-50 text-center">
+                        <li class="nav-item w-50 text-center" data-bs-toggle="tab"
+                        data-bs-target="#nav-profile" >
                         <a class="nav-link fs-5 active" aria-current="page" href="#">我是專家</a>
                     </li>
                     </ul>
-                </div>
-                <div class="card shadow-sm" id="loginCard">
-                    <div class="card-body position-relative px-5">
-                        <div class="py-3">
-                            <label for="floatingAccount" class="mb-2">帳號</label>
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="floatingAccount"
-                                    placeholder="name@example.com" value="etatung">
-                                <label for="floatingAccount">請輸入帳號(身份證字號)</label>
-                            </div>
-                            <div class="form-check py-2">
-                                <input class="form-check-input" type="checkbox" value="" id="rememberAccount" checked>
-                                <label class="form-check-label text-secondary" for="rememberAccount">
-                                   記住帳號
-                                </label>
+                </div> -->
+                <nav class="position-relative w-100">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link w-50 text-center fs-5" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">會員登入</button>
+                        <button class="nav-link w-50 text-center fs-5 active" id="nav-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profile" type="button" role="tab"
+                            aria-controls="nav-profile" aria-selected="false">我是專家</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade" id="nav-home" role="tabpanel"
+                        aria-labelledby="nav-home-tab">
+                        <div class="card shadow-sm" id="loginCard">
+                            <div class="card-body position-relative px-5">
+                                <div class="py-3">
+                                    <label for="floatingAccount_normal" class="mb-2">帳號</label>
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="floatingAccount_normal"
+                                            placeholder="name@example.com" value="">
+                                        <label for="floatingAccount_normal">請輸入帳號(身份證字號)</label>
+                                    </div>
+                                    <div class="form-check py-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberAccount" checked>
+                                        <label class="form-check-label text-secondary" for="rememberAccount">
+                                           記住帳號
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="py-3">
+                                    <label for="floatingPassword_normal" class="mb-2">密碼</label>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="floatingPassword_normal" placeholder="Password"  value="">
+                                        <label for="floatingPassword_normal">請輸入密碼</label>
+                                    </div>
+                                    <div class="form-check py-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberPassword" checked>
+                                        <label class="form-check-label text-secondary" for="rememberPassword">
+                                            記住密碼
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" onclick="Login()">送出</a>
+                                <hr class="mt-5" />
+                                <div class="w-100 text-center">
+                                    <p>
+                                        <a href="#" class="text-primary">忘記密碼</a>
+                                    </p>
+                                    <p>
+                                        <a href="#" class="text-primary">註冊帳號</a>
+                                    </p>
+                                    <p>
+                                        <a href="#" class="text-primary">如何加入會員?</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="py-3">
-                            <label for="floatingPassword" class="mb-2">密碼</label>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"  value="123456">
-                                <label for="floatingPassword">請輸入密碼</label>
+                    </div>
+                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
+                        aria-labelledby="nav-profile-tab">
+                        <div class="card shadow-sm" id="loginCard">
+                            <div class="card-body position-relative px-5">
+                                <div class="py-3">
+                                    <label for="floatingAccount" class="mb-2">帳號</label>
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="floatingAccount"
+                                            placeholder="name@example.com" value="etatung">
+                                        <label for="floatingAccount">請輸入帳號(身份證字號)</label>
+                                    </div>
+                                    <div class="form-check py-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberAccount" checked>
+                                        <label class="form-check-label text-secondary" for="rememberAccount">
+                                           記住帳號
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="py-3">
+                                    <label for="floatingPassword" class="mb-2">密碼</label>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"  value="123456">
+                                        <label for="floatingPassword">請輸入密碼</label>
+                                    </div>
+                                    <div class="form-check py-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberPassword" checked>
+                                        <label class="form-check-label text-secondary" for="rememberPassword">
+                                            記住密碼
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" onclick="Login()">送出</a>
+                                <hr class="mt-5" />
+                                <div class="w-100 text-center">
+                                    <p>
+                                        <a href="#" class="text-primary">忘記密碼</a>
+                                    </p>
+                                    <p>
+                                        <a href="#" class="text-primary">註冊帳號</a>
+                                    </p>
+                                    <p>
+                                        <a href="#" class="text-primary">如何加入會員?</a>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="form-check py-2">
-                                <input class="form-check-input" type="checkbox" value="" id="rememberPassword" checked>
-                                <label class="form-check-label text-secondary" for="rememberPassword">
-                                    記住密碼
-                                </label>
-                            </div>
-                        </div>
-                        <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" onclick="Login()">送出</a>
-                        <hr class="mt-5" />
-                        <div class="w-100 text-center">
-                            <p>
-                                <a href="#" class="text-primary">忘記密碼</a>
-                            </p>
-                            <p>
-                                <a href="#" class="text-primary">註冊帳號</a>
-                            </p>
-                            <p>
-                                <a href="#" class="text-primary">如何加入會員?</a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -170,7 +234,7 @@
         background-color: #fff;
     }
 
-    nav {
+    #login-container>nav {
         background-image: url(./images/loginbg.png);
         background-size: cover;
         background-position: 0 30%;
