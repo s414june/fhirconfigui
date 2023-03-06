@@ -63,7 +63,7 @@
             </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
                 <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset"  id="_import"></div>
+                    <div class="hash-offset" id="_import"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>匯入對應代碼</h4>
@@ -86,10 +86,12 @@
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                            aria-selected="true">通用代碼</button>
+                                            aria-selected="true"
+                                            onclick="$('#sourceTableOutside').show();$('#sourceTable_selfOutside').hide();">通用代碼</button>
                                         <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                             data-bs-target="#nav-profile" type="button" role="tab"
-                                            aria-controls="nav-profile" aria-selected="false">自定義代碼</button>
+                                            aria-controls="nav-profile" aria-selected="false"
+                                            onclick="$('#sourceTableOutside').hide();$('#sourceTable_selfOutside').show();">自定義代碼</button>
                                     </div>
                                 </nav>
                                 <div class="tab-content mt-2" id="nav-tabContent">
@@ -110,7 +112,7 @@
                 </div>
                 <div class="card text-gray-800 w-100 mb-5"
                     style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
-                    <div class="hash-offset"  id="_result"></div>
+                    <div class="hash-offset" id="_result"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>對應結果</h4>
@@ -122,70 +124,160 @@
                     </div>
                     <div class="row card-body">
                         <div class="col-12 overflow-auto">
-                            <table id="sourceTable" class="table table-striped position-relative">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 4rem;">項次</th>
-                                        <th>代碼</th>
-                                        <th>顯示文字</th>
-                                        <th>資料來源</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <input type="text" value="1" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="已婚" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="http://etatunghospital.com.tw"
-                                                class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <input type="text" value="1" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="已婚" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="http://etatunghospital.com.tw"
-                                                class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <input type="text" value="1" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="已婚" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="http://etatunghospital.com.tw"
-                                                class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <input type="text" value="1" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="已婚" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" value="http://etatunghospital.com.tw"
-                                                class="form-control">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div id="sourceTableOutside">
+                                <table id="sourceTable" class="table table-striped position-relative">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 4rem;">項次</th>
+                                            <th>FHIR code</th>
+                                            <th>FHIR display</th>
+                                            <th>FHIR system</th>
+                                            <th>對應代碼</th>
+                                            <th>備註</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                UNK
+                                            </td>
+                                            <td>
+                                                unknown
+                                            </td>
+                                            <td>
+                                                http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+                                            </td>
+                                            <td>
+                                                <input type="text" value="" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                有偶（施行法）
+                                            </td>
+                                            <td>
+                                                https://twcore.mohw.gov.tw/tsfhir/CodeSystem/marital-status-tw
+                                            </td>
+                                            <td>
+                                                <input type="text" value="1" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="已婚" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                7
+                                            </td>
+                                            <td>
+                                                終止結婚（施行法）
+                                            </td>
+                                            <td>
+                                                http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+                                            </td>
+                                            <td>
+                                                <input type="text" value="2" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="離婚" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                8
+                                            </td>
+                                            <td>
+                                                喪偶（施行法）
+                                            </td>
+                                            <td>
+                                                http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+                                            </td>
+                                            <td>
+                                                <input type="text" value="3" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="喪偶" class="form-control">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="sourceTable_selfOutside">
+                                <table id="sourceTable_self" class="table table-striped position-relative">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 4rem;">項次</th>
+                                            <th>代碼</th>
+                                            <th>顯示文字</th>
+                                            <th>資料來源</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" value="1" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="已婚" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="http://etatunghospital.com.tw"
+                                                    class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" value="1" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="已婚" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="http://etatunghospital.com.tw"
+                                                    class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" value="1" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="已婚" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="http://etatunghospital.com.tw"
+                                                    class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" value="1" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="已婚" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="text" value="http://etatunghospital.com.tw"
+                                                    class="form-control">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -282,6 +374,11 @@
 <script>
     // DataTable
     var table = $('#sourceTable').DataTable({
+        searching: false
+    });
+
+    // DataTable
+    var table = $('#sourceTable_self').DataTable({
         initComplete: function () {
             // Apply the search
             this.api().columns().every(function () {
@@ -302,6 +399,9 @@
     document.getElementById('exampleModal').addEventListener('hidden.bs.modal', function (event) {
         // do something...
         $("#exampleModalLabel").text("Modify");
+    })
+    $(function () {
+        $("#sourceTable_selfOutside").hide();
     })
 </script>
 
