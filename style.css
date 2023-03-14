@@ -16,9 +16,12 @@
   --bs-dark: #343537;
   --bs-danger: #f35740;
   --bs-danger-rgb: 242, 88, 64;
-  --menu-width: 350px;
+  --menu-width: 300px;
   --titile-line-height: 1rem;
   --system-space: 1rem;
+  --bs-info: rgb(28, 137, 187);
+  --bs-info-rgb: 28, 137, 187;
+  --bs-orange: #d86c07;
 }
 a {
   text-decoration: none;
@@ -70,6 +73,7 @@ button {
 select.form-select,
 option {
   font-size: 0.95rem;
+  width: auto;
 }
 input[type="range"]::-webkit-slider-thumb {
   background-color: var(--bs-primary);
@@ -872,7 +876,7 @@ a.btn-sm {
 
 #menu,
 .menu-holder {
-  width: 350px;
+  width: 300px;
   overflow: visible;
 }
 
@@ -1003,7 +1007,7 @@ transform: rotate(-135deg); */
   z-index: 1;
 }
 
-.offcanvas-btn{
+.offcanvas-btn {
   border: initial;
   background: initial;
   width: 30px;
@@ -1014,9 +1018,7 @@ transform: rotate(-135deg); */
 }
 
 .hash-offset {
-  transform: translateY(
-    calc((-1) * var(--titile-line-height) - 1.5rem - 3rem)
-  );
+  transform: translateY(calc((-1) * var(--titile-line-height) - 1.5rem - 3rem));
 }
 
 @media (min-width: 768px) {
@@ -1030,21 +1032,30 @@ transform: rotate(-135deg); */
   }
 }
 
-#system-main .position-sticky{
+#system-main .position-sticky {
   height: 3rem;
   align-items: center;
   top: calc(var(--titile-line-height) + 1.5rem);
   z-index: 50;
-  transition: .2s;
+  transition: 0.2s;
   opacity: 0.5;
 }
 
-#system-main .position-sticky:hover{
+#system-main .position-sticky:hover {
   background-color: rgb(255, 255, 255);
-  transition: .2s;
+  transition: 0.2s;
   opacity: 1;
 }
 
-.card{
+.card {
   overflow: hidden;
 }
+
+.type-select {
+  display: none;
+}
+
+/* .btn-detail {
+  position: sticky;
+  left: 10px;
+} */

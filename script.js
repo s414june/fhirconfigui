@@ -45,7 +45,7 @@ function openCollapsedMenu() {
         $("#menu").removeClass("collapsed");
         $(".menu-holder").removeClass("collapsed");
         $("#TableOutside").removeClass("collapsed");
-        $("html").css("--menu-width", "350px");
+        $("html").css("--menu-width", "300px");
     }
 }
 

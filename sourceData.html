@@ -297,7 +297,7 @@
 
     $(function () {
         $.ajax({
-            url: './json/病患基本資料_Patient_4.0.1_230308.json',
+            url: './json/病患基本資料_Patient_4.0.1_230314.json',
             type: 'get',
             success: function (res) {
                 res.uiIndex = 1;
@@ -315,19 +315,19 @@
         let UiDatas = "";
         switch (mappingStatus) {
             case "Y":
-                text = "已對應,btn-outline-danger";
+                UiDatas = "已對應,btn-outline-danger";
                 break;
             case "N":
-                text = "未對應,btn-outline-info";
+                UiDatas = "未對應,btn-outline-info";
                 break;
             case "O":
-                text = "對應中,btn-outline-danger";
+                UiDatas = "對應中,btn-outline-danger";
                 break;
             default:
-                text = "未對應,btn-outline-info";
+                UiDatas = "未對應,btn-outline-info";
                 break;
         }
-        return text;
+        return UiDatas;
     }
 </script>
 

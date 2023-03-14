@@ -116,7 +116,6 @@ WHERE id_no != ''
                                 <thead>
                                     <tr>
                                         <th style="width: 4rem;">項次</th>
-                                        <th>詳細</th>
                                         <th>已對應</th>
                                         <th>FHIR欄位名稱</th>
                                         <th>FHIR欄位型態</th>
@@ -124,11 +123,12 @@ WHERE id_no != ''
                                         <th>對應資料表</th>
                                         <th>對應欄位</th>
                                         <th>對應欄位型態</th>
-                                        <th>代碼對應</th>
-                                        <th>篩選條件</th>
+                                        <th class="bg-primary">對應模式</th>
+                                        <th class="bg-primary">對應內容</th>
+                                        <th class="bg-primary">詳細</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <!-- <tbody>
                                     <tr>
                                         <td>1</td>
                                         <td>
@@ -237,7 +237,7 @@ WHERE id_no != ''
                                         <td>-</td>
                                         <td>where pat_info<20 and ...</td>
                                     </tr>
-                                </tbody>
+                                </tbody> -->
                             </table>
                         </div>
                     </div>
@@ -266,6 +266,7 @@ WHERE id_no != ''
                                     <span id="detail_type">integer</span>
                                 </li>
                                 <li>FHIR欄位說明：
+                                    <br />
                                     <span id="detail_desc">integer</span>
                                 </li>
                             </ul>
@@ -293,27 +294,57 @@ WHERE id_no != ''
                         </div>
                         <div class="col-md-6 d-flex mb-2 align-items-center">
                             <label for="_type">對應欄位型態：</label>
-                            <input type="text" class="form-control" id="_type">
+                            <input type="text" class="form-control" id="_type" disabled>
                         </div>
-                        <div class="col-md-12 mt-4">
-                            <h4 class="text-primary">代碼對應設定</h4>
-                        </div>
-                        <div class="col-md-6 d-flex mb-2 align-items-center">
-                            <label for="_code">對應代碼集：</label>
-                            <select name="" id="_code" class="form-select">
-                                <option value="">婚姻狀態對應</option>
-                            </select>
-                        </div>
-                        <div class="col-md-12 mt-4">
-                            <h4 class="text-primary">篩選條件設定</h4>
-                        </div>
-                        <div class="col-md-12 mb-2">
-                            <textarea name="" id="" rows="5" class="w-100 form-control">
-where pat_info<20 and pat_info>5
-                            </textarea>
-                        </div>
-                        <div class="col-md-12 mb-2">
-                            <button class="btn btn-primary">檢測</button>
+                        <div class="col-12 row" id="typeSelect">
+                            <div class="col-md-12 row type-select type-code">
+                                <div class="col-md-12 mt-4">
+                                    <h4 class="bg-info text-white p-2 rounded opacity-75">代碼對應設定</h4>
+                                </div>
+                                <div class="col-md-6 d-flex mb-2 align-items-center">
+                                    <label for="_code">對應代碼集：</label>
+                                    <select name="" id="_code" class="form-select">
+                                        <option value="">婚姻狀態對應</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 row type-select type-bool">
+                                <div class="col-md-12 mt-4">
+                                    <h4 class="bg-warning text-white p-2 rounded">是非對應設定</h4>
+                                </div>
+                                <div class="col-md-6 d-flex mb-2 align-items-center">
+                                    <label for="_true">True：</label>
+                                    <select name="" id="_true" class="form-select" multiple size="3">
+                                        <option value="">是</option>
+                                        <option value="">否</option>
+                                        <option value="">N</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 d-flex mb-2 align-items-center">
+                                    <label for="_false">False：</label>
+                                    <select name="" id="_false" class="form-select" multiple size="3">
+                                        <option value="">是</option>
+                                        <option value="">否</option>
+                                        <option value="">N</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    *按下Ctrl以多選
+                                </div>
+                            </div>
+                            <div class="col-md-12 row type-select type-filter">
+                                <div class="col-md-12 mt-4">
+                                    <h4 class="bg-primary text-white p-2 rounded">篩選條件設定</h4>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <textarea name="" id="" rows="5" class="w-100 form-control">
+        where pat_info<20 and pat_info>5
+                                    </textarea>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <button class="btn btn-primary">檢測</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -422,27 +453,13 @@ where pat_info<20 and pat_info>5
     var columns = [
         { data: 'uiIndex' },
         {
-            data: 'uiIndex', render: function (data, type, row) {
-                return `<a class="btn btn-primary" style="white-space: nowrap;"
-                     href="#_details" onclick="changeDetails(${data})">
-                    詳細
-                </a>`;
-            }
-        },
-        {
-            data: 'uiIndex', render: function (data, type, row) {
-                return '';
-            }
+            data: 'uiMappingStatusText'
         },
         { data: 'cusName' },
         { data: 'cusType' },
-        { data: 'cusDescribe' },
         {
-            data: 'uiIndex', render: function (data, type, row) {
-                return `
-                <select name="" id="" class="form-select">
-                                                <option value="">pat_info</option>
-                                            </select>`;
+            data: 'cusDescribe', render: function (data, type, row) {
+                return data.length > 6 ? data.slice(0, 6)+"..." : data;
             }
         },
         {
@@ -455,17 +472,31 @@ where pat_info<20 and pat_info>5
         },
         {
             data: 'uiIndex', render: function (data, type, row) {
-                return '<input type="text" class="form-control">';
-            }
-        },
-        {
-            data: 'codeMapping', render: function (data, type, row) {
-                return data ? "未對應" : "-"
+                return `
+                <select name="" id="" class="form-select">
+                                                <option value="">pat_info</option>
+                                            </select>`;
             }
         },
         {
             data: 'uiIndex', render: function (data, type, row) {
-                return '';
+                return '<input type="text" class="form-control" disabled>';
+            }
+        },
+        {
+            data: 'uiMappingType', render: function (data, type, row) {
+                return data.text;
+            }
+        },
+        {
+            data: 'uiMappingValue'
+        },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return `<a class="btn btn-primary btn-detail" style="white-space: nowrap;"
+                     href="#_details" onclick="changeDetails(${data})">
+                    詳細
+                </a>`;
             }
         }
     ];
@@ -484,7 +515,7 @@ where pat_info<20 and pat_info>5
 
     $(function () {
         $.ajax({
-            url: './json/病患基本資料_Patient_4.0.1_230308.json',
+            url: './json/病患基本資料_Patient_4.0.1_230314.json',
             type: 'get',
             success: function (res) {
                 let element = res.snapshot.element;
@@ -494,8 +525,22 @@ where pat_info<20 and pat_info>5
                         ele.uiIndex = uiIndex++;
                         ele.cusName = ele.cusName ?? "未知";
                         ele.cusType = ele.cusType ?? "未知";
-                        ele.cusDescribe = ele.cusDescribe ?? "";
+                        ele.cusDescribe = ele.cusDescribe ?? "未知";
+                        ele.uiMappingStatusText = getMappingStatusUiDatas(ele.mappingStatus);
+                        ele.uiMappingType = getMappingDatas(ele.codeMapping, ele.boolMapping);
+                        if (ele.uiMappingType.name === "code") {
+                            ele.uiMappingValue = getUiCodeMapping(ele.codeName);
+                        }
+                        else if (ele.uiMappingType.name === "bool") {
+                            ele.uiMappingValue =
+                                getUiBoolMapping(ele.booleanTrue, ele.booleanFalse);
+                        }
+                        else {
+                            ele.uiMappingValue = "";
+                        }
+
                         needSelectElement.push(ele);
+                        console.log(ele)
                     }
                     else {
                         noSelectElement.push(ele);
@@ -515,8 +560,60 @@ where pat_info<20 and pat_info>5
         $("#detail_title").text(nowElement.cusName ?? "未知");
         $("#detail_name").text(nowElement.cusName ?? "未知");
         $("#detail_type").text(nowElement.cusType ?? "未知");
-        $("#detail_desc").text(nowElement.cusDescribe ?? "");
+        $("#detail_desc").text(nowElement.cusDescribe ?? "未知");
+        let showSelectEleSelector = ".type-" + nowElement.uiMappingType.name;
+        $("#typeSelect .type-select:not(" + showSelectEleSelector + ")").css("display", "none");
+        $("#typeSelect " + showSelectEleSelector).css("display", "flex");
     }
+
+    function getMappingStatusUiDatas(mappingStatus) {
+        let UiHtml = mappingStatus ?
+            "<span class='text-danger'>V</span>" : "";
+        return UiHtml;
+    }
+
+    function getMappingDatas(code, bool) {
+        let datas = {};
+        if (code) {
+            console.log(datas)
+            datas.text = "<span class='bg-info text-white'>代碼對應</span>";
+            datas.name = "code";
+        }
+        else if (bool) {
+            datas.text = "<span class='bg-warning text-white'>是非對應</span>";
+            datas.name = "bool";
+        }
+        else {
+            datas.text = "<span>篩選對應</span>";
+            datas.name = "filter";
+        }
+        return datas;
+    }
+
+    function getUiCodeMapping(codeName) {
+        let uiMapping = "";
+        if (codeName != "") {
+            uiMapping = codeName;
+        }
+        else {
+            uiMapping = "<span class='text-danger'>未對應</span>";
+        }
+        return uiMapping;
+    }
+    function getUiBoolMapping(TrueValue, falseValue) {
+        let uiMapping = "";
+        if (TrueValue != "" || falseValue != "") {
+            uiMapping = `
+                <p>True:<span>${TrueValue}</span></p>
+                <p>false:<span>${falseValue}</span></p>
+                `;
+        }
+        else {
+            uiMapping = "<span class='text-danger'>未對應</span>";
+        }
+        return uiMapping;
+    }
+
 </script>
 
 </html>
