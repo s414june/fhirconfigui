@@ -41,27 +41,29 @@
         <div class="menu-holder"></div>
         <section class="position-relative" id="system-main">
             <div class="d-flex justify-content-end mx-xl-5 position-sticky">
-                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="offcanvas-btn">
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight" class="offcanvas-btn">
                     <img src="./images/bars-staggered-solid.svg" alt="" class="">
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                  <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    <p>
-                        <a href="#_version" class="text-primary">匯入資料表欄位</a>
-                    </p>
-                    <p>
-                        <a href="#_version" class="text-primary">統計 - 資料集對應</a>
-                    </p>
-                  </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>
+                            <a href="#_version" class="text-primary">匯入資料表欄位</a>
+                        </p>
+                        <p>
+                            <a href="#_version" class="text-primary">統計 - 資料集對應</a>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
                 <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset"  id="_import"></div>
+                    <div class="hash-offset" id="_import"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>匯入資料表欄位 - 使用指令</h4>
@@ -98,7 +100,7 @@ WHERE id_no != ''
                 </div>
                 <div class="card text-gray-800 w-100 mb-5"
                     style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
-                    <div class="hash-offset"  id="_col"></div>
+                    <div class="hash-offset" id="_col"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>對應匯入欄位</h4>
@@ -242,10 +244,12 @@ WHERE id_no != ''
                 </div>
                 <div class="card text-gray-800 w-100 mb-5"
                     style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
-                    <div class="hash-offset"  id="_details"></div>
+                    <div class="hash-offset" id="_details"></div>
                     <div class="card-header d-flex justify-content-between bg-primary">
                         <div class="d-flex align-items-center">
-                            <h4 class="text-white m-0">詳細資料 - 年齡</h4>
+                            <h4 class="text-white m-0">詳細資料 -
+                                <span id="detail_title">年齡</span>
+                            </h4>
                         </div>
                         <div class="bg-white" style="border-radius: 0.25rem;">
                             <button class="btn btn-outline-primary">套用</button>
@@ -255,20 +259,21 @@ WHERE id_no != ''
                         <div class="col-md-6">
                             <h5>欄位FHIR資訊</h5>
                             <ul>
-                                <li>FHIR欄位名稱：年齡</li>
-                                <li>FHIR欄位型態：integer</li>
+                                <li>FHIR欄位名稱：
+                                    <span id="detail_name">年齡</span>
+                                </li>
+                                <li>FHIR欄位型態：
+                                    <span id="detail_type">integer</span>
+                                </li>
                                 <li>FHIR欄位說明：
-                                    <br />
-                                    ~~~
-                                    <br />
-                                    ~~~
+                                    <span id="detail_desc">integer</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <h5>欄位狀態</h5>
                             <ul>
-                                <li>狀態：已對應</li>
+                                <li>狀態：未對應</li>
                             </ul>
                         </div>
                         <div class="col-md-12 mt-4">
@@ -407,18 +412,111 @@ where pat_info<20 and pat_info>5
         white-space: nowrap;
     }
 
-    .form-select,.form-control:not(textarea) {
+    .form-select,
+    .form-control:not(textarea) {
         max-width: 300px;
     }
 </style>
 <script>
     // DataTable
-    var table = $('#sourceTable').DataTable({});
+    var columns = [
+        { data: 'uiIndex' },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return `<a class="btn btn-primary" style="white-space: nowrap;"
+                     href="#_details" onclick="changeDetails(${data})">
+                    詳細
+                </a>`;
+            }
+        },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return '';
+            }
+        },
+        { data: 'cusName' },
+        { data: 'cusType' },
+        { data: 'cusDescribe' },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return `
+                <select name="" id="" class="form-select">
+                                                <option value="">pat_info</option>
+                                            </select>`;
+            }
+        },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return `
+                <select name="" id="" class="form-select">
+                                                <option value="">pat_info</option>
+                                            </select>`;
+            }
+        },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return '<input type="text" class="form-control">';
+            }
+        },
+        {
+            data: 'codeMapping', render: function (data, type, row) {
+                return data ? "未對應" : "-"
+            }
+        },
+        {
+            data: 'uiIndex', render: function (data, type, row) {
+                return '';
+            }
+        }
+    ];
+
+    var table = $('#sourceTable').DataTable({
+        columns: columns
+    });
 
     document.getElementById('exampleModal').addEventListener('hidden.bs.modal', function (event) {
         // do something...
         $("#exampleModalLabel").text("Modify");
     })
+
+    let needSelectElement = [];
+    let noSelectElement = [];
+
+    $(function () {
+        $.ajax({
+            url: './json/病患基本資料_Patient_4.0.1_230308.json',
+            type: 'get',
+            success: function (res) {
+                let element = res.snapshot.element;
+                let uiIndex = 1;
+                $(element).each((i, ele) => {
+                    if (ele.selected) {
+                        ele.uiIndex = uiIndex++;
+                        ele.cusName = ele.cusName ?? "未知";
+                        ele.cusType = ele.cusType ?? "未知";
+                        ele.cusDescribe = ele.cusDescribe ?? "";
+                        needSelectElement.push(ele);
+                    }
+                    else {
+                        noSelectElement.push(ele);
+                    }
+                })
+                table.clear().rows.add(needSelectElement).draw();
+                changeDetails(1)
+            },
+            error: function (xhr) {
+                console.error(xhr.status, xhr.statusText)
+            }
+        });
+    })
+
+    function changeDetails(uiIndex) {
+        let nowElement = needSelectElement[uiIndex - 1];
+        $("#detail_title").text(nowElement.cusName ?? "未知");
+        $("#detail_name").text(nowElement.cusName ?? "未知");
+        $("#detail_type").text(nowElement.cusType ?? "未知");
+        $("#detail_desc").text(nowElement.cusDescribe ?? "");
+    }
 </script>
 
 </html>

@@ -41,27 +41,29 @@
         <div class="menu-holder"></div>
         <section class="position-relative" id="system-main">
             <div class="d-flex justify-content-end mx-xl-5 position-sticky">
-                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="offcanvas-btn">
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight" class="offcanvas-btn">
                     <img src="./images/bars-staggered-solid.svg" alt="" class="">
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                  <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    <p>
-                        <a href="#_version" class="text-primary">匯入資料表欄位</a>
-                    </p>
-                    <p>
-                        <a href="#_version" class="text-primary">統計 - 資料集對應</a>
-                    </p>
-                  </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>
+                            <a href="#_version" class="text-primary">匯入資料表欄位</a>
+                        </p>
+                        <p>
+                            <a href="#_version" class="text-primary">統計 - 資料集對應</a>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
                 <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset"  id="_version"></div>
+                    <div class="hash-offset" id="_version"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>FHIR版本 - 4.0.1</h4>
@@ -133,7 +135,7 @@
                     </div>
                 </div>
                 <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset"  id="_total"></div>
+                    <div class="hash-offset" id="_total"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>統計 - 資料集對應</h4>
@@ -254,6 +256,18 @@
     }
 </style>
 <script>
+    var columns = [
+        { data: 'uiIndex' },
+        { data: 'datasetTitle' },
+        { data: 'title' },
+        {
+            data: 'uiMappingStatusText', render: function (data, type, row) {
+                let d = data.split(",");
+                return d[0] + '<a class="btn-sm ' + d[1] + ' mx-1" href="./patient.html">編輯</button>'
+            }
+        },
+        { data: 'configUpdateDate' }
+    ];
     // DataTable
     var table = $('#sourceTable').DataTable({
         initComplete: function () {
@@ -271,12 +285,50 @@
             });
         }
         , searching: false
+        , columns: columns
     });
+
+    let mockDatas = [];
 
     document.getElementById('exampleModal').addEventListener('hidden.bs.modal', function (event) {
         // do something...
         $("#exampleModalLabel").text("Modify");
     })
+
+    $(function () {
+        $.ajax({
+            url: './json/病患基本資料_Patient_4.0.1_230308.json',
+            type: 'get',
+            success: function (res) {
+                res.uiIndex = 1;
+                res.uiMappingStatusText = getMappingStatusUiDatas(res.mappingStatus);
+                mockDatas.push(res);
+                table.clear().rows.add(mockDatas).draw();
+            },
+            error: function (xhr) {
+                console.error(xhr.status, xhr.statusText)
+            }
+        });
+    })
+
+    function getMappingStatusUiDatas(mappingStatus) {
+        let UiDatas = "";
+        switch (mappingStatus) {
+            case "Y":
+                text = "已對應,btn-outline-danger";
+                break;
+            case "N":
+                text = "未對應,btn-outline-info";
+                break;
+            case "O":
+                text = "對應中,btn-outline-danger";
+                break;
+            default:
+                text = "未對應,btn-outline-info";
+                break;
+        }
+        return text;
+    }
 </script>
 
 </html>
