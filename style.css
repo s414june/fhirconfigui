@@ -141,6 +141,11 @@ input[type="range"]:active::-webkit-slider-thumb {
   flex-direction: column;
   transition: 0.5s;
 }
+#menu.collapsed .grow-when-collapsed {
+  width: 100%;
+  padding: 0 !important;
+}
+
 .hide-when-collapsed.show {
   display: block;
 }
@@ -886,6 +891,7 @@ a.btn-sm {
 
 #menu a {
   color: inherit;
+  width: 100%;
 }
 
 #menu-tree button {
@@ -900,6 +906,7 @@ a.btn-sm {
   background: none;
   color: var(--bs-white);
   font-size: 1.2rem;
+  width: 100%;
 }
 
 #menu
@@ -1059,3 +1066,11 @@ transform: rotate(-135deg); */
   position: sticky;
   left: 10px;
 } */
+
+header .accordion-button {
+  padding: 1rem 0;
+}
+
+header .accordion-button a {
+  display: flex;
+}

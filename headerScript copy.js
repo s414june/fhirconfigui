@@ -98,7 +98,7 @@ function getMenutree() {
                 data-bs-target="#collapseNowArrow0_${i}" aria-expanded="false"
                 aria-controls="collapseNowArrow0_${i}">
                     <a href="${v["Url"]}" class="goto-url">
-                        ${v["DisplayName"]}
+                        <h2 class="hide-when-collapsed">${v["DisplayName"]}</h2>
                     </a>
                 </button>
             </h2>`;
@@ -125,7 +125,7 @@ function getMenutree() {
         $(datas).each((i, v) => {
             if (v["Ul"] == null) {
                 child += ` <li style="${listyle}"><a href="${v["Url"]}">
-                    ${v["DisplayName"]}
+                    <h2 class="hide-when-collapsed">${v["DisplayName"]}</h2>
                 </a></li>`;
             } else {
                 child += `
@@ -133,6 +133,7 @@ function getMenutree() {
                 <button class="accordion-button collapsed" style="${listyle}" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseNowArrow${floor}_${i}" aria-expanded="false" aria-controls="collapseNowArrow${floor}_${i}">
                     <a href="${v["Url"]}" class="goto-url">
+                    <h2 class="hide-when-collapsed">${v["DisplayName"]}</h2>
                         ${v["DisplayName"]}
                     </a>
                 </button>

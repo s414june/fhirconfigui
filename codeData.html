@@ -41,27 +41,32 @@
         <div class="menu-holder"></div>
         <section class="position-relative" id="system-main">
             <div class="d-flex justify-content-end mx-xl-5 position-sticky">
-                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="offcanvas-btn">
+                <a href="./index.html" class="me-auto btn">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </a>
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight" class="offcanvas-btn">
                     <img src="./images/bars-staggered-solid.svg" alt="" class="">
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                  <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    <p>
-                        <a href="#_version" class="text-primary">代碼集列表</a>
-                    </p>
-                    <p>
-                        <a href="#_version" class="text-primary">統計 - 欄位代碼對應</a>
-                    </p>
-                  </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">功能清單</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>
+                            <a href="#_version" class="text-primary">代碼集列表</a>
+                        </p>
+                        <p>
+                            <a href="#_version" class="text-primary">統計 - 欄位代碼對應</a>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
                 <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset"  id="_codelist"></div>
+                    <div class="hash-offset" id="_codelist"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>代碼集列表</h4>
@@ -125,7 +130,7 @@
                     </div>
                 </div>
                 <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset"  id="_total"></div>
+                    <div class="hash-offset" id="_total"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h4>統計 - 欄位代碼對應</h4>
@@ -141,15 +146,15 @@
                             <h5 class="my-0">對應中：</h5>
                             <p class="my-0 me-3">5</p>
                             <!-- <button class="btn-sm btn-danger">前往編輯</button> -->
-                        <!-- </div>
+                            <!-- </div>
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">未對應：</h5>
                             <p class="my-0 me-3">58</p>
                             <button class="btn-sm btn-info text-white">前往新對應</button>
                         </div> -->
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
     </div>
 

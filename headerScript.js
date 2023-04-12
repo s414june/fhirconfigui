@@ -3,6 +3,7 @@ let menuDatas = {
     "MenuRoots": [{
             "Name": "",
             "DisplayName": "總覽 - 首頁",
+            "DisplayIconHtml":`<i class="fa-solid fa-house"></i>`,
             "Url": "./index.html",
             "Type": "A",
             "Ul": null
@@ -10,6 +11,7 @@ let menuDatas = {
         {
             "Name": "",
             "DisplayName": "系統管理",
+            "DisplayIconHtml":`<i class="fa-solid fa-screwdriver-wrench"></i>`,
             "Url": "#",
             "Type": "A",
             "Ul": null
@@ -17,6 +19,7 @@ let menuDatas = {
         {
             "Name": "",
             "DisplayName": "連線設定",
+            "DisplayIconHtml":`<i class="fa-solid fa-database"></i>`,
             "Url": "./dbdata.html",
             "Type": "A",
             "Ul": null
@@ -24,6 +27,7 @@ let menuDatas = {
         {
             "Name": "",
             "DisplayName": "資料集對應",
+            "DisplayIconHtml":`<i class="fa-solid fa-file"></i>`,
             "Url": "./sourcedata.html",
             "Type": "A",
             "Ul": null
@@ -31,7 +35,8 @@ let menuDatas = {
         {
             "Name": "",
             "DisplayName": "欄位代碼對應",
-            "Url": "./codeData.html",
+            "DisplayIconHtml":`<i class="fa-solid fa-code-compare"></i>`,
+            "Url": "./codedata.html",
             "Type": "A",
             "Ul": null
         }
@@ -49,7 +54,10 @@ function getMenutree() {
                 data-bs-target="#collapseNowArrow0_${i}" aria-expanded="false"
                 aria-controls="collapseNowArrow0_${i}">
                     <a href="${v["Url"]}" class="goto-url">
-                        ${v["DisplayName"]}
+                        <div class="grow-when-collapsed ps-4 justify-content-center d-flex">
+                            ${v["DisplayIconHtml"]}
+                        </div>
+                        <span class="hide-when-collapsed ps-3 flex-grow-2">${v["DisplayName"]}</span>
                     </a>
                 </button>
             </h2>`;
@@ -76,7 +84,10 @@ function getMenutree() {
         $(datas).each((i, v) => {
             if (v["Ul"] == null) {
                 child += ` <li style="${listyle}"><a href="${v["Url"]}">
-                    ${v["DisplayName"]}
+                        <div class="grow-when-collapsed ps-4 justify-content-center d-flex">
+                            ${v["DisplayIconHtml"]}
+                        </div>
+                        <span class="hide-when-collapsed ps-3 flex-grow-2">${v["DisplayName"]}</span>
                 </a></li>`;
             } else {
                 child += `
@@ -84,7 +95,10 @@ function getMenutree() {
                 <button class="accordion-button collapsed" style="${listyle}" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseNowArrow${floor}_${i}" aria-expanded="false" aria-controls="collapseNowArrow${floor}_${i}">
                     <a href="${v["Url"]}" class="goto-url">
-                        ${v["DisplayName"]}
+                        <div class="grow-when-collapsed ps-4 justify-content-center d-flex">
+                            ${v["DisplayIconHtml"]}
+                        </div>
+                        <span class="hide-when-collapsed ps-3 flex-grow-2">${v["DisplayName"]}</span>
                     </a>
                 </button>
                 `;
