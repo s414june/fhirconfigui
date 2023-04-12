@@ -145,17 +145,17 @@
                     <div class="row card-body">
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">已對應：</h5>
-                            <p class="my-0 me-3">10</p>
+                            <p class="my-0 me-3" id="mappingStatus_Y">10</p>
                             <!-- <button class="btn-sm btn-danger">前往編輯</button> -->
                         </div>
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">對應中：</h5>
-                            <p class="my-0 me-3">5</p>
+                            <p class="my-0 me-3" id="mappingStatus_O">5</p>
                             <!-- <button class="btn-sm btn-danger">前往編輯</button> -->
                         </div>
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">未對應：</h5>
-                            <p class="my-0 me-3">58</p>
+                            <p class="my-0 me-3" id="mappingStatus_N">58</p>
                             <!-- <button class="btn-sm btn-info text-white">前往新對應</button> -->
                         </div>
                     </div>
@@ -258,6 +258,11 @@
 </style>
 <script>
     let tableDatas = [];
+    let mappingStatusSummary = {
+        Y: 0,
+        N: 0,
+        O: 0
+    }
     let nowVersion = "4.0.1";
     var columns = [
         { data: 'uiIndex' },
@@ -307,18 +312,22 @@
             case "Y":
                 UiDatas.text = "已對應";
                 UiDatas.class = "btn-outline-danger";
+                mappingStatusSummary.Y++;
                 break;
             case "N":
                 UiDatas.text = "未對應";
                 UiDatas.class = "btn-outline-info";
+                mappingStatusSummary.N++;
                 break;
             case "O":
                 UiDatas.text = "對應中";
                 UiDatas.class = "btn-outline-danger";
+                mappingStatusSummary.O++;
                 break;
             default:
                 UiDatas.text = "未對應";
                 UiDatas.class = "btn-outline-info";
+                mappingStatusSummary.N++;
                 break;
         }
         return UiDatas;
@@ -366,6 +375,9 @@
                     tableDatas.push(dataset);
                 }
                 table.clear().rows.add(tableDatas).draw();
+                for (let k in mappingStatusSummary) {
+                    $("#mappingStatus_" + k).text(mappingStatusSummary[k]);
+                }
             },
             error: function (xhr) {
                 console.error(xhr.status, xhr.statusText)
