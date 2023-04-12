@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
-                <div class="card text-gray-800 w-100 mb-5">
+                <div class="card text-gray-800 w-100 mb-5 grow-card">
                     <div class="hash-offset" id="_codelist"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
@@ -74,35 +74,37 @@
                         <a href="./connectdb.html" class="btn btn-info text-white">新增</a>
                     </div>
                     <div class="row card-body">
-                        <table id="sourceTable" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>項次</th>
-                                    <th>資料庫名稱</th>
-                                    <th>伺服器名稱</th>
-                                    <th>資料庫來源</th>
-                                    <th>使用者名稱</th>
-                                    <th>備註</th>
-                                    <th>設定連線時間</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>testdb
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editdb.html">編輯</button>
-                                    </td>
-                                    <td>localhost\\SQLEXPRESS</td>
-                                    <td>
-                                        SQL
-
-                                    </td>
-                                    <td>polly</td>
-                                    <td>測試用</td>
-                                    <td>2023-04-12 00:00:00</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="col-12 overflow-auto sticky-table-outside">
+                            <table id="sourceTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>項次</th>
+                                        <th>資料庫名稱</th>
+                                        <th>伺服器名稱</th>
+                                        <th>資料庫來源</th>
+                                        <th>使用者名稱</th>
+                                        <th>備註</th>
+                                        <th>設定連線時間</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>testdb
+                                            <a class="btn-sm btn-outline-danger mx-1" href="./editdb.html">編輯</button>
+                                        </td>
+                                        <td>localhost\\SQLEXPRESS</td>
+                                        <td>
+                                            SQL
+    
+                                        </td>
+                                        <td>polly</td>
+                                        <td>測試用</td>
+                                        <td>2023-04-12 00:00:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
         </section>
@@ -219,5 +221,9 @@
         $("#exampleModalLabel").text("Modify");
     })
 </script>
-
+<style>
+    #sourceTable td:nth-child(2){
+        white-space: nowrap;
+    }
+</style>
 </html>

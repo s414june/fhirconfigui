@@ -74,59 +74,61 @@
                         <button class="btn btn-info text-white">新增</button>
                     </div>
                     <div class="row card-body">
-                        <table id="sourceTable" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>項次</th>
-                                    <th>代碼集名稱</th>
-                                    <th>對應FHIR代碼</th>
-                                    <th>狀態</th>
-                                    <th>最後更新時間</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>婚姻狀態</td>
-                                    <td>臺灣婚姻狀態值集</td>
-                                    <td>
-                                        已對應
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./marriage.html">編輯</button>
-                                    </td>
-                                    <td>2023-02-02 18:02:00</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>性別</td>
-                                    <td>AdministrativeGender</td>
-                                    <td>
-                                        已對應
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./marriage.html">編輯</button>
-                                    </td>
-                                    <td>2023-02-02 18:02:00</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>醫事人員類別</td>
-                                    <td>臺灣醫事人員類別值集</td>
-                                    <td>
-                                        對應中
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./marriage.html">編輯</button>
-                                    </td>
-                                    <td>2023-02-02 18:02:00</td>
-                                </tr>
-                                <!-- <tr>
-                                    <td>4</td>
-                                    <td>藥物開立紀錄</td>
-                                    <td>Patient</td>
-                                    <td>
-                                        未對應
-                                        <a class="btn-sm btn-outline-info mx-1" href="./marriage.html">對應</button>
-                                    </td>
-                                    <td>2023-02-02 18:02:00</td>
-                                </tr> -->
-                            </tbody>
-                        </table>
+                        <div class="col-12 overflow-auto sticky-table-outside">
+                            <table id="sourceTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>項次</th>
+                                        <th>代碼集名稱</th>
+                                        <th>對應FHIR代碼</th>
+                                        <th>狀態</th>
+                                        <th>最後更新時間</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>婚姻狀態</td>
+                                        <td>臺灣婚姻狀態值集</td>
+                                        <td>
+                                            已對應
+                                            <a class="btn-sm btn-outline-danger mx-1" href="./marriage.html">編輯</button>
+                                        </td>
+                                        <td>2023-02-02 18:02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>性別</td>
+                                        <td>AdministrativeGender</td>
+                                        <td>
+                                            已對應
+                                            <a class="btn-sm btn-outline-danger mx-1" href="./marriage.html">編輯</button>
+                                        </td>
+                                        <td>2023-02-02 18:02:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>醫事人員類別</td>
+                                        <td>臺灣醫事人員類別值集</td>
+                                        <td>
+                                            對應中
+                                            <a class="btn-sm btn-outline-danger mx-1" href="./marriage.html">編輯</button>
+                                        </td>
+                                        <td>2023-02-02 18:02:00</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>4</td>
+                                        <td>藥物開立紀錄</td>
+                                        <td>Patient</td>
+                                        <td>
+                                            未對應
+                                            <a class="btn-sm btn-outline-info mx-1" href="./marriage.html">對應</button>
+                                        </td>
+                                        <td>2023-02-02 18:02:00</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class="card text-gray-800 w-100 mb-5">

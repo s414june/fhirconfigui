@@ -708,9 +708,15 @@ div.dataTables_wrapper .row {
 .reply-place-outside > .card {
   /* background-color: rgb(230, 242, 252); */
 }
+.sticky-table-outside {
+  /* height: calc(100 * var(--vh) - 3rem); */
+}
 .table > thead {
   background-color: var(--bs-dark);
   color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 th {
   font-weight: 400 !important;
@@ -875,6 +881,7 @@ a.btn,
 a.btn-sm {
   border-width: 1px;
   border-style: solid;
+  display: inline-block;
 }
 
 /* 2022/12/26新增 */
@@ -1073,4 +1080,8 @@ header .accordion-button {
 
 header .accordion-button a {
   display: flex;
+}
+
+.grow-card {
+  max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);
 }
