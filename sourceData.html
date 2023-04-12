@@ -257,6 +257,7 @@
     }
 </style>
 <script>
+    let tableDatas = [];
     let nowVersion = "4.0.1";
     var columns = [
         { data: 'uiIndex' },
@@ -324,14 +325,13 @@
     }
 
     async function awaitFilesList() {
-        let tableDatas = [];
         await getFileInJsonFolder().then((filesList) => {
             getTabledata(filesList)
         }).catch(e => {
             let filesList = [{
                 version: "4.0.1",
                 date: "230407",
-                url: "資料集設定檔_4.0.1_230407.json"
+                url: "/json/資料集設定檔_4.0.1_230407.json"
             }];
             getTabledata(filesList);
             console.error(e);
