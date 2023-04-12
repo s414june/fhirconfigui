@@ -1,18 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>資料集對應 | HIS- FHIR對應系統</title>
+    <title>連線設定 / 新增 | HIS- FHIR對應系統</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./font-awesome/css/all.min.css">
     <script src="js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./font-awesome/js/all.min.js"></script>
-    <script src="./js/moment.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +53,7 @@
                     </div>
                     <div class="offcanvas-body">
                         <p>
-                            <a href="#_version" class="text-primary">匯入資料表欄位</a>
+                            <a href="#_version" class="text-primary">FHIR版本 - 4.0.1</a>
                         </p>
                         <p>
                             <a href="#_version" class="text-primary">統計 - 資料集對應</a>
@@ -63,105 +62,101 @@
                 </div>
             </div>
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
-                <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset" id="_version"></div>
+                <div class="card text-gray-800 w-100 mb-5"
+                    style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
+                    <div class="hash-offset" id="_result"></div>
                     <div class="card-header d-flex justify-content-between">
                         <div class="d-flex align-items-center">
-                            <h4>FHIR版本 - 4.0.1</h4>
+                            <h4>連線基本資訊 - testdb</h4>
                         </div>
-                        <button class="btn btn-primary">切換版本</button>
+                        <div>
+                            <button type="submit" class="btn btn-primary">存檔</button>
+                            <button class="btn btn-danger">刪除</button>
+                        </div>
                     </div>
-                    <div class="row card-body" id="_version">
-                        <table id="sourceTable" class="table table-striped">
+                    <div class="row card-body">
+                        <div class="col-md-12 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">連線結果：</h5>
+                            <p class="my-0 me-3 text-danger">OK</p>
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">資料庫名稱：</h5>
+                            <p class="my-0 me-3 text-primary">testdb</p>
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">資料庫來源：</h5>
+                            <p class="my-0 me-3 text-primary">SQL</p>
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">伺服器名稱：</h5>
+                            <p class="my-0 me-3 text-primary">localhost\\SQLEXPRESS</p>
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">使用者名稱：</h5>
+                            <p class="my-0 me-3 text-primary">polly</p>
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">備註：</h5>
+                            <div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <h5 class="my-0">設定連線時間：</h5>
+                            <p class="my-0 me-3 text-primary">2023-04-12 00:00:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-gray-800 w-100 mb-5"
+                style="max-width: calc(100vw - var(--menu-width) - var(--system-space) - 20px);">
+                <div class="hash-offset" id="_result"></div>
+                <div class="card-header d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <h4>資料表清單 - testdb</h4>
+                    </div>
+                </div>
+                <div class="row card-body">
+                    <div class="col-12 overflow-auto">
+                        <table id="sourceTable" class="table table-striped position-relative">
                             <thead>
                                 <tr>
-                                    <th>項次</th>
-                                    <th>資料集名稱</th>
-                                    <th>對應Resource</th>
-                                    <th>狀態</th>
-                                    <th>最後更新時間</th>
+                                    <th style="width: 4rem;">項次</th>
+                                    <th>資料表名稱</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>病患基本資料</td>
-                                    <td>Patient</td>
-                                    <td class="d-flex">
-                                        <p>
-                                            已對應
-                                        </p>
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editSource.html">編輯</button>
+                                    <td>
+                                        table_1
                                     </td>
-                                    <td>2023-02-02 18:02:00</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>病患基本資料</td>
-                                    <td>Patient</td>
-                                    <td class="d-flex">
-                                        <p>
-                                            已對應
-                                        </p>
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editSource.html">編輯</button>
+                                    <td>
+                                        table_1
                                     </td>
-                                    <td>2023-02-02 18:02:00</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>病患基本資料</td>
-                                    <td>Patient</td>
-                                    <td class="d-flex">
-                                        <p>
-                                            已對應
-                                        </p>
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editSource.html">編輯</button>
+                                    <td>
+                                        table_1
                                     </td>
-                                    <td>2023-02-02 18:02:00</td>
                                 </tr>
                                 <tr>
-                                    <td>4</td>
-                                    <td>藥物開立紀錄</td>
-                                    <td>Patient</td>
-                                    <td class="d-flex">
-                                        <p>
-                                            已對應
-                                        </p>
-                                        <a class="btn-sm btn-outline-info mx-1" href="./editSource.html">對應</button>
+                                    <td>1</td>
+                                    <td>
+                                        table_1
                                     </td>
-                                    <td>2023-02-02 18:02:00</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="card text-gray-800 w-100 mb-5">
-                    <div class="hash-offset" id="_total"></div>
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <h4>統計 - 資料集對應</h4>
-                        </div>
-                    </div>
-                    <div class="row card-body">
-                        <div class="col-md-12 mb-3 d-flex align-items-center">
-                            <h5 class="my-0">已對應：</h5>
-                            <p class="my-0 me-3">10</p>
-                            <button class="btn-sm btn-danger">前往編輯</button>
-                        </div>
-                        <div class="col-md-12 mb-3 d-flex align-items-center">
-                            <h5 class="my-0">對應中：</h5>
-                            <p class="my-0 me-3">5</p>
-                            <button class="btn-sm btn-danger">前往編輯</button>
-                        </div>
-                        <div class="col-md-12 mb-3 d-flex align-items-center">
-                            <h5 class="my-0">未對應：</h5>
-                            <p class="my-0 me-3">58</p>
-                            <button class="btn-sm btn-info text-white">前往新對應</button>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </section>
+            </div>
+    </div>
+    </section>
     </div>
 
     <!-- Modal -->
@@ -188,7 +183,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12 mb-2">Direction</div>
                                 <div class="col-md-12">
-                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select col-md-9">
                                         <option value="0">ALL</option>
                                         <option value="2">North</option>
                                         <option value="6">South</option>
@@ -232,7 +227,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12 mb-2">Status</div>
                                 <div class="col-md-12">
-                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select col-md-9">
                                         <option value="0">Active</option>
                                         <option value="0">Disable</option>
                                     </select>
@@ -248,27 +243,10 @@
             </div>
         </div>
     </div>
-    <div class="d-none title-name">資料集對應</div>
+    <div class="d-none title-name">連線設定 / 新增</div>
 </body>
-<style>
-    .btn-sm {
-        white-space: nowrap;
-        height: fit-content;
-    }
-</style>
 <script>
-    let nowVersion = "4.0.1";
-    var columns = [
-        { data: 'uiIndex' },
-        { data: 'datasetTitle' },
-        { data: 'type' },
-        {
-            data: 'uiMappingStatus', render: function (data, type, row) {
-                return data.text + '<a class="btn-sm ' + data.class + ' mx-1" href="./editSource.html?id=' + data.id + '">編輯</button>'
-            }
-        },
-        { data: 'lastUpdateDate' }
-    ];
+    // DataTable
     var table = $('#sourceTable').DataTable({
         initComplete: function () {
             // Apply the search
@@ -285,111 +263,12 @@
             });
         }
         , searching: false
-        , columns: columns
     });
 
     document.getElementById('exampleModal').addEventListener('hidden.bs.modal', function (event) {
         // do something...
         $("#exampleModalLabel").text("Modify");
     })
-    $(function () {
-        awaitFilesList();
-    })
-
-    function getMappingStatusUiDatas(mappingStatus) {
-        let UiDatas = {
-            id: "",
-            text: "",
-            class: ""
-        };
-        switch (mappingStatus) {
-            case "Y":
-                UiDatas.text = "已對應";
-                UiDatas.class = "btn-outline-danger";
-                break;
-            case "N":
-                UiDatas.text = "未對應";
-                UiDatas.class = "btn-outline-info";
-                break;
-            case "O":
-                UiDatas.text = "對應中";
-                UiDatas.class = "btn-outline-danger";
-                break;
-            default:
-                UiDatas.text = "未對應";
-                UiDatas.class = "btn-outline-info";
-                break;
-        }
-        return UiDatas;
-    }
-
-    async function awaitFilesList() {
-        let tableDatas = [];
-        await getFileInJsonFolder().then((filesList) => {
-            //目前抓日期最新的檔案，所以選降冪排序後的第一個檔案
-            let sameVersionList = filesList.filter(fileInfo => {
-                return fileInfo.version == nowVersion
-            }).sort((a, b) => parseInt(b.date) - parseInt(a.date));
-            let nowFile = sameVersionList[0];
-            if (nowFile && nowFile.url) {
-                sessionStorage.setItem("fhirFileUrl", nowFile.url);
-            }
-            else {
-                return;
-            }
-            $.ajax({
-                url: '.' + nowFile.url,
-                type: 'get',
-                success: function (res) {
-                    //以rank值來排序(有些資料需要先後順序)
-                    let datasets = res.datasets.sort((a, b) => a.rank - b.rank);
-                    for (let i in datasets) {
-                        let dataset = res.datasets[i];
-                        dataset.configUpdateDate = res.configUpdateDate;
-                        dataset.uiIndex = parseInt(i) + 1;
-                        dataset.uiMappingStatus = getMappingStatusUiDatas(dataset.mappingStatus);
-                        //在連結增加id資訊
-                        dataset.uiMappingStatus.id = dataset.id;
-                        tableDatas.push(dataset);
-                    }
-                    table.clear().rows.add(tableDatas).draw();
-                },
-                error: function (xhr) {
-                    console.error(xhr.status, xhr.statusText)
-                }
-            });
-        }).catch(e => {
-            console.error(e);
-        })
-    }
-
-    function getFileInJsonFolder() {
-        return new Promise((resolve, reject) => {
-            let filesList = [];
-            $.ajax({
-                url: './json',
-                type: 'get',
-                success: function (res) {
-                    let dic_body = res.match(/<body.*?>(.*)<\/body>/ms)[1];
-                    if (dic_body) {
-                        let filesHrefAttr = dic_body.match(/href=["|'].*?\/json\/(.+?)["|']/g);
-                        $(filesHrefAttr).each((i, filesHref) => {
-                            let fileUrl = filesHref.replace(/href=["|'].*?(\/json\/.+?)["|']/, "$1");
-                            let fileInfo_match = fileUrl.match(/.*_(?<version>.+?)_(?<date>[0-9]{6,7})\.json/);
-                            let fileInfo = fileInfo_match.groups;
-                            fileInfo.url = fileUrl;
-                            filesList.push(fileInfo);
-                        });
-                        return resolve(filesList);
-                    }
-                },
-                error: function (xhr) {
-                    reject(xhr);
-                    console.error(xhr.status, xhr.statusText)
-                }
-            });
-        });
-    }
 </script>
 
 </html>

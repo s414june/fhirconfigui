@@ -17,7 +17,7 @@ let menuDatas = {
         {
             "Name": "",
             "DisplayName": "連線設定",
-            "Url": "./connectdb.html",
+            "Url": "./dbData.html",
             "Type": "A",
             "Ul": null
         },
@@ -71,13 +71,6 @@ let menuDatas = {
                 {
                     "Name": "",
                     "DisplayName": "已對應資料",
-                    "Url": "./codeData.html",
-                    "Type": "A",
-                    "Ul": null
-                },
-                {
-                    "Name": "",
-                    "DisplayName": "未對應資料",
                     "Url": "./codeData.html",
                     "Type": "A",
                     "Ul": null

@@ -1,0 +1,833 @@
+{
+  "fhirVersion" : "4.0.1",
+  "TWIGVersion" : "0.1.0-Trial Use",
+  "configVersion" : "2.1",
+  "configUpdateDate" : "2023-03-24",
+  "datasets" : [
+    {
+      "id" : "Patient_information",
+      "type" : "Patient",     
+      "lastUpdateDate" : "2023-03-21",
+      "rank" : 1,
+      "datasetTitle" : "病患基本資料",
+      "mappingStatus" : "N",
+      "MSSQLDB": {
+        "info": "FullUrl和下面的參數挑一個使用，FullUrl最優先，不使用請填null",
+        "fullUrl": null,
+        "user": "tsti",
+        "password": "0000",
+        "server": "localhost\\SQLEXPRESS",
+        "port": 1433,
+        "databaseName": "Tmhtc_PHR",
+        "trustServerCertificate": true,
+        "encrypt": false
+      },
+      "elements" : [
+        {
+          "id" : "age_e",
+          "status" : false,
+          "name" : "年齡",
+          "describe" : "",
+          "type" : "integer",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          }     
+        },
+        {
+          "id" : "identityID",
+          "status" : false,
+          "name" : "身分證字號",
+          "describe" : "如為國內病患，需對應身分證字號",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          }     
+        },
+        {
+          "id" : "pastportNumber",
+          "status" : false,
+          "name" : "護照號碼",
+          "describe" : "如為國外病患，可選擇對應護照號碼或居留證號碼",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "residentNumber",
+          "status" : false,
+          "name" : "居留證號碼",
+          "describe" : "如為國外病患，可選擇對應護照號碼或居留證號碼",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "MR_ID",
+          "status" : false,
+          "name" : "病歷號",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "name",
+          "status" : false,
+          "name" : "病患姓名",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "telecom_work_s",
+          "status" : false,
+          "name" : "工作電話",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "telecom_home_s",
+          "status" : false,
+          "name" : "住家電話",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "telecom_mobile_s",
+          "status" : false,
+          "name" : "手機號碼",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "gender",
+          "status" : false,
+          "name" : "性別",
+          "describe" : "須對應性別: male, female, other, unknown",
+          "type" : "code",
+          "min" : "1",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : true,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "birthDate",
+          "status" : false,
+          "name" : "出生年月日",
+          "describe" : "格式須符合 yyyy-MM-dd",
+          "type" : "date",
+          "min" : "1",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "deceasedBoolean",
+          "status" : false,
+          "name" : "是否死亡",
+          "describe" : "如SQL欄位中非boolean型態，須額外對應",
+          "type" : "boolean",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : true,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },   
+        {
+          "id" : "deceasedDateTime",
+          "status" : false,
+          "name" : "死亡時間",
+          "describe" : "如死亡，提供死亡時間",
+          "type" : "dateTime",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },   
+        {
+          "id" : "address_s",
+          "status" : false,
+          "name" : "住家地址",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },   
+        {
+          "id" : "maritalStatus_code",
+          "status" : false,
+          "name" : "婚姻狀態",
+          "describe" : "須對應代碼「臺灣婚姻狀態值集」",
+          "type" : "CodeableConcept",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : true,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "contact_name_s",
+          "status" : false,
+          "name" : "緊急聯絡人姓名",
+          "describe" : "",
+          "type" : "CodeableConcept",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : true,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "contact_telecom_work_s",
+          "status" : false,
+          "name" : "緊急聯絡人工作電話",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "contact_telecom_home_s",
+          "status" : false,
+          "name" : "緊急聯絡人住家電話",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "contact_telecom_mobile_s",
+          "status" : false,
+          "name" : "緊急聯絡人手機號碼",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "contact_address_s",
+          "status" : false,
+          "name" : "緊急聯絡人住家地址",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "managingOrganization",
+          "status" : false,
+          "name" : "病患隸屬機構(病歷保管處)",
+          "describe" : "此欄位須為例屬機構之醫事機構代碼",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }
+      ]
+    },
+    {
+      "id" : "Practitioner_information",
+      "type" : "Practitioner",
+      "lastUpdateDate" : "2023-03-21",
+      "rank" : 2,
+      "datasetTitle" : "醫事人員基本資料",
+      "mappingStatus" : "N",
+      "sqlServer": {
+        "info": "FullUrl和下面的參數挑一個使用，FullUrl最優先，不使用請填null",
+        "FullUrl": null,
+        "User": "tsti",
+        "Password": "0000",
+        "Server": "localhost\\SQLEXPRESS",
+        "port": 1433,
+        "DatabaseName": "Tmhtc_PHR",
+        "TrustServerCertificate": true,
+        "Encrypt": false
+      },
+      "elements" : [
+        {
+          "id" : "identityID",
+          "status" : false,
+          "name" : "身分證字號",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          }     
+        },
+        {
+          "id" : "MD_ID",
+          "status" : false,
+          "name" : "員工編號",
+          "describe" : "院內員工編號",
+          "type" : "string",
+          "min" : "1",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "name",
+          "status" : false,
+          "name" : "人員姓名",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "telecom_phone",
+          "status" : false,
+          "name" : "聯絡電話",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "telecom_email",
+          "status" : false,
+          "name" : "Email",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "telecom_call",
+          "status" : false,
+          "name" : "Call機號碼",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "gender",
+          "status" : false,
+          "name" : "性別",
+          "describe" : "須對應性別: male, female, other, unknown",
+          "type" : "code",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : true,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "birthDate",
+          "status" : false,
+          "name" : "出生年月日",
+          "describe" : "格式須符合 yyyy-MM-dd",
+          "type" : "date",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        },
+        {
+          "id" : "address",
+          "status" : false,
+          "name" : "住家地址",
+          "describe" : "",
+          "type" : "string",
+          "min" : "0",
+          "max" : "1",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : false,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }, 
+        {
+          "id" : "qualification_code_s",
+          "status" : false,
+          "name" : "醫事人員類別",
+          "describe" : "須對應代碼「臺灣醫事人員類別」",
+          "type" : "CodeableConcept",
+          "min" : "0",
+          "max" : "*",
+          "codeMapping" : {
+            "info" : "判斷是否需做代碼對應，valuesetName會放代碼對應集的名稱",
+            "needToMap" : true,
+            "valuesetName" : ""
+          },
+          "boolMapping" : {
+            "info" : "判斷是否需做boolean對應，true/false放對應true&false的值，多筆以逗號區隔，例如true: Y,T",
+            "needToMap" : false,
+            "true" : [],
+            "false" : []
+          },
+          "result" : {
+            "table" : "",
+            "colName" : "",
+            "condition" : ""
+          } 
+        }                 
+      ]
+    }
+  ]
+}
+    
+    
+    
+    
+    
+   
+   
+   
