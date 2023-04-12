@@ -31,7 +31,7 @@
 
 <body>
     <header></header>
-    <script src="./headerScript.js"></script>
+    <script src="./headerscript.js"></script>
     <script>
         $("header").load("./header.html", () => {
             getMenutree();
@@ -91,7 +91,7 @@
                                         <p>
                                             已對應
                                         </p>
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editSource.html">編輯</button>
+                                        <a class="btn-sm btn-outline-danger mx-1" href="./editsource.html">編輯</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
                                 </tr>
@@ -103,7 +103,7 @@
                                         <p>
                                             已對應
                                         </p>
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editSource.html">編輯</button>
+                                        <a class="btn-sm btn-outline-danger mx-1" href="./editsource.html">編輯</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
                                 </tr>
@@ -115,7 +115,7 @@
                                         <p>
                                             已對應
                                         </p>
-                                        <a class="btn-sm btn-outline-danger mx-1" href="./editSource.html">編輯</button>
+                                        <a class="btn-sm btn-outline-danger mx-1" href="./editsource.html">編輯</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
                                 </tr>
@@ -127,7 +127,7 @@
                                         <p>
                                             已對應
                                         </p>
-                                        <a class="btn-sm btn-outline-info mx-1" href="./editSource.html">對應</button>
+                                        <a class="btn-sm btn-outline-info mx-1" href="./editsource.html">對應</button>
                                     </td>
                                     <td>2023-02-02 18:02:00</td>
                                 </tr>
@@ -146,17 +146,17 @@
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">已對應：</h5>
                             <p class="my-0 me-3">10</p>
-                            <button class="btn-sm btn-danger">前往編輯</button>
+                            <!-- <button class="btn-sm btn-danger">前往編輯</button> -->
                         </div>
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">對應中：</h5>
                             <p class="my-0 me-3">5</p>
-                            <button class="btn-sm btn-danger">前往編輯</button>
+                            <!-- <button class="btn-sm btn-danger">前往編輯</button> -->
                         </div>
                         <div class="col-md-12 mb-3 d-flex align-items-center">
                             <h5 class="my-0">未對應：</h5>
                             <p class="my-0 me-3">58</p>
-                            <button class="btn-sm btn-info text-white">前往新對應</button>
+                            <!-- <button class="btn-sm btn-info text-white">前往新對應</button> -->
                         </div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@
         { data: 'type' },
         {
             data: 'uiMappingStatus', render: function (data, type, row) {
-                return data.text + '<a class="btn-sm ' + data.class + ' mx-1" href="./editSource.html?id=' + data.id + '">編輯</button>'
+                return data.text + '<a class="btn-sm ' + data.class + ' mx-1" href="./editsource.html?id=' + data.id + '">編輯</button>'
             }
         },
         { data: 'lastUpdateDate' }

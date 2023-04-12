@@ -25,15 +25,64 @@ let menuDatas = {
             "Name": "",
             "DisplayName": "資料集對應",
             "Url": "./sourcedata.html",
-            "Type": "A",
-            "Ul": null
+            "Type": "M",
+            "Ul": [{
+                    "Name": "",
+                    "DisplayName": "所有資料",
+                    "Url": "./sourcedata.html",
+                    "Type": "A",
+                    "Ul": null
+                },
+                {
+                    "Name": "",
+                    "DisplayName": "已對應資料",
+                    "Url": "./sourcedata.html",
+                    "Type": "A",
+                    "Ul": null
+                },
+                {
+                    "Name": "",
+                    "DisplayName": "未對應資料",
+                    "Url": "./sourcedata.html",
+                    "Type": "A",
+                    "Ul": null
+                },
+                {
+                    "Name": "",
+                    "DisplayName": "對應中資料",
+                    "Url": "#",
+                    "Type": "A",
+                    "Ul": null
+                }
+            ]
         },
         {
             "Name": "",
             "DisplayName": "欄位代碼對應",
-            "Url": "./codeData.html",
-            "Type": "A",
-            "Ul": null
+            "Url": "./codedata.html",
+            "Type": "M",
+            "Ul": [{
+                    "Name": "",
+                    "DisplayName": "所有資料",
+                    "Url": "./codedata.html",
+                    "Type": "A",
+                    "Ul": null
+                },
+                {
+                    "Name": "",
+                    "DisplayName": "已對應資料",
+                    "Url": "./codedata.html",
+                    "Type": "A",
+                    "Ul": null
+                },
+                {
+                    "Name": "",
+                    "DisplayName": "對應中資料",
+                    "Url": "#",
+                    "Type": "A",
+                    "Ul": null
+                }
+            ]
         }
     ]
 };

@@ -30,17 +30,17 @@
 
 <body>
     <header></header>
-    <script src="./headerScript.js"></script>
+    <script src="./headerscript.js"></script>
     <script>
         const getFhirJsonData = new Promise((resolve, reject) => {
             let fhirFileUrl = sessionStorage.getItem("fhirFileUrl");
             if (!fhirFileUrl) {
                 alert("請先確認FHIR版本");
-                location.assign("./sourceData.html");
+                location.assign("./sourcedata.html");
             }
             if (!location.search.includes('id=')) {
                 alert("連結錯誤");
-                location.assign("./sourceData.html");
+                location.assign("./sourcedata.html");
             }
             let id = location.search.split('?')[1].replace('id=', '');
             $.ajax({
@@ -107,7 +107,7 @@ FROM pat_info
 WHERE id_no != ''
                                 </textarea>
                             </div>
-                            <div class="">
+                            <div class="mt-2">
                                 <button class="btn btn-primary">檢測並執行</button>
                                 <button class="btn btn-primary" disabled>匯入</button>
                             </div>
