@@ -161,6 +161,9 @@
                     </div>
                 </div>
             </div>
+            <a class="source-data-changer px-2 btn bg-primary text-white" onclick="doJson(this)" href="#">
+                <small>產出設定檔</small>
+            </a>
         </section>
     </div>
 
@@ -326,51 +329,41 @@
     async function awaitFilesList() {
         let tableDatas = [];
         await getFileInJsonFolder().then((filesList) => {
-            getTabledata(filesList)
-        }).catch(e => {
-            let filesList = {
-                version: "4.0.1",
-                date: "230407",
-                url: "資料集設定檔_4.0.1_230407.json"
+            //目前抓日期最新的檔案，所以選降冪排序後的第一個檔案
+            let sameVersionList = filesList.filter(fileInfo => {
+                return fileInfo.version == nowVersion
+            }).sort((a, b) => parseInt(b.date) - parseInt(a.date));
+            let nowFile = sameVersionList[0];
+            if (nowFile && nowFile.url) {
+                sessionStorage.setItem("fhirFileUrl", nowFile.url);
             }
-            getTabledata(filesList);
+            else {
+                return;
+            }
+            $.ajax({
+                url: '.' + nowFile.url,
+                type: 'get',
+                success: function (res) {
+                    //以rank值來排序(有些資料需要先後順序)
+                    let datasets = res.datasets.sort((a, b) => a.rank - b.rank);
+                    for (let i in datasets) {
+                        let dataset = res.datasets[i];
+                        dataset.configUpdateDate = res.configUpdateDate;
+                        dataset.uiIndex = parseInt(i) + 1;
+                        dataset.uiMappingStatus = getMappingStatusUiDatas(dataset.mappingStatus);
+                        //在連結增加id資訊
+                        dataset.uiMappingStatus.id = dataset.id;
+                        tableDatas.push(dataset);
+                    }
+                    table.clear().rows.add(tableDatas).draw();
+                },
+                error: function (xhr) {
+                    console.error(xhr.status, xhr.statusText)
+                }
+            });
+        }).catch(e => {
             console.error(e);
         })
-    }
-
-    function getTabledata(filesList) {
-        //目前抓日期最新的檔案，所以選降冪排序後的第一個檔案
-        let sameVersionList = filesList.filter(fileInfo => {
-            return fileInfo.version == nowVersion
-        }).sort((a, b) => parseInt(b.date) - parseInt(a.date));
-        let nowFile = sameVersionList[0];
-        if (nowFile && nowFile.url) {
-            sessionStorage.setItem("fhirFileUrl", nowFile.url);
-        }
-        else {
-            return;
-        }
-        $.ajax({
-            url: '.' + nowFile.url,
-            type: 'get',
-            success: function (res) {
-                //以rank值來排序(有些資料需要先後順序)
-                let datasets = res.datasets.sort((a, b) => a.rank - b.rank);
-                for (let i in datasets) {
-                    let dataset = res.datasets[i];
-                    dataset.configUpdateDate = res.configUpdateDate;
-                    dataset.uiIndex = parseInt(i) + 1;
-                    dataset.uiMappingStatus = getMappingStatusUiDatas(dataset.mappingStatus);
-                    //在連結增加id資訊
-                    dataset.uiMappingStatus.id = dataset.id;
-                    tableDatas.push(dataset);
-                }
-                table.clear().rows.add(tableDatas).draw();
-            },
-            error: function (xhr) {
-                console.error(xhr.status, xhr.statusText)
-            }
-        });
     }
 
     function getFileInJsonFolder() {
@@ -399,6 +392,15 @@
                 }
             });
         });
+    }
+
+    function doJson(that) {
+        let jsonData = JSON.stringify({"a":123});
+        var blob = new Blob([jsonData], {
+            type: "application/json"
+        }),
+            url = window.URL.createObjectURL(blob);
+        $(that).attr('href', url).attr('download', "fhirconfig.json");
     }
 </script>
 
