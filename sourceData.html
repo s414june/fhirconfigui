@@ -328,11 +328,11 @@
         await getFileInJsonFolder().then((filesList) => {
             getTabledata(filesList)
         }).catch(e => {
-            let filesList = {
+            let filesList = [{
                 version: "4.0.1",
                 date: "230407",
                 url: "資料集設定檔_4.0.1_230407.json"
-            }
+            }];
             getTabledata(filesList);
             console.error(e);
         })
