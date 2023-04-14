@@ -538,6 +538,7 @@ WHERE id_no != ''
         let showSelectEleSelector = ".type-" + nowElement.uiMappingType.name;
         $("#typeSelect .type-select:not(" + showSelectEleSelector + ")").css("display", "none");
         $("#typeSelect " + showSelectEleSelector).css("display", "flex");
+        refreshOffsetcanvas();
     }
 
     function getMappingStatusUiDatas(mappingStatus) {

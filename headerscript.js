@@ -199,16 +199,7 @@ function afterGetHeader() {
       let href = $(e.currentTarget).attr("href");
       location.assign(href);
     });
-    $("#offcanvasRight .offcanvas-body").html("");
-    $(".hash-offset").each((i, hash_ele) => {
-      let hash = "#" + $(hash_ele).attr("id");
-      let txt = $(hash_ele).parent().find(".card-header h4").text();
-      $("#offcanvasRight .offcanvas-body").append(`
-            <p>
-                <a href="${hash}" class="text-primary">${txt}</a>
-            </p>
-            `);
-    });
+    refreshOffsetcanvas();
     changeTableCardHeight();
     $(window).resize(() => {
       changeTableCardHeight();
@@ -223,5 +214,17 @@ function afterGetHeader() {
         "calc(100*var(--vh) - " + titleAndCardHeight + "px)"
       );
     }
+  });
+}
+function refreshOffsetcanvas() {
+  $("#offcanvasRight .offcanvas-body").html("");
+  $(".hash-offset").each((i, hash_ele) => {
+    let hash = "#" + $(hash_ele).attr("id");
+    let txt = $(hash_ele).parent().find(".card-header h4").text();
+    $("#offcanvasRight .offcanvas-body").append(`
+          <p>
+              <a href="${hash}" class="text-primary">${txt}</a>
+          </p>
+          `);
   });
 }
