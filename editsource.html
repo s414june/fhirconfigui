@@ -482,24 +482,16 @@ WHERE id_no != ''
                 ele.uiMappingType = getMappingDatas(ele.codeMapping, ele.boolMapping);
                 if (parseInt(ele.min)) {
                     if (parseInt(ele.min) > 0) {
-                        ele.uiMappingType.text += "<span class='text-danger'>(至少" + ele.min + "筆)</span>"
-                        ele.name += "<span class='text-danger'>*</span>";
+                        ele.uiMappingType.text += "<span class='text-danger'>(必填)</span>"
                     }
                 }
-                if (parseInt(ele.max)) {
-                    if (parseInt(ele.min) > 1) {
-                        ele.uiMappingType.text += "<span class='text-danger'>(最多" + ele.max + "筆)</span>";
-                        //需可以動態新增
-                        ele.needDynamic = true;
-                    }
-                }
-                else if (ele.max === "*") {
-                    ele.uiMappingType.text += "<span class='text-danger'>(多筆)</span>";
+                if (ele.max === "*") {
+                    ele.uiMappingType.text += "<span class='text-primary'>(可多筆)</span>";
                     //需可以動態新增
                     ele.needDynamic = true;
                 }
                 if (ele.uiMappingType.name === "code") {
-                    ele.uiMappingValue = getUiCodeMapping(ele.codeMapping.valuesetName);
+                    ele.uiMappingValue = ele.codeMapping.valuesetName;
                 }
                 else if (ele.uiMappingType.name === "bool") {
                     ele.uiMappingValue =
