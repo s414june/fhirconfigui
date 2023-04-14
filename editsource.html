@@ -270,9 +270,9 @@ WHERE id_no != ''
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer d-none" id="dynamicBtns">
                         <div class="d-flex">
-                            <div class="d-none mx-2 d-flex align-items-center" id="dynamicBtns">
+                            <div class="mx-2 d-flex align-items-center">
                                 <button class="btn btn-outline-warning bg-white mx-1" onclick="addSetting()">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
@@ -387,7 +387,7 @@ WHERE id_no != ''
         white-space: nowrap;
     }
 
-    #dynamicBtns>button {
+    #dynamicBtns button {
         width: 1.5rem;
         height: 1.5rem;
         font-size: 1rem;
