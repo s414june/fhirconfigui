@@ -473,7 +473,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   color: var(--bs-gray-400) !important;
 }
 #title > div {
-  z-index: 1;
+  z-index: 5;
 }
 .bg-primary-light {
   background-color: var(--bs-primary-light);
