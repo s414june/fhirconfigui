@@ -516,10 +516,20 @@ WHERE id_no != ''
     })
 
     function changeDetails(uiIndex) {
+        $(".data-setting-place").each((i, p) => {
+            if (i > 0) {
+                p.remove();
+                $("#dataSetting hr")[i].remove();
+            }
+        })
         let nowElement = needSelectElement[uiIndex - 1];
         if (nowElement.needDynamic) {
             $("#dynamicBtns").removeClass("d-none");
             $(".data-setting-place").find(".setting-id").text(" - 第1筆");
+        }
+        else {
+            $("#dynamicBtns").removeClass("d-none");
+            $(".data-setting-place").find(".setting-id").text("");
         }
         $("#detail_title").html(nowElement.name ?? "未知");
         $("#detail_name").html(nowElement.name ?? "未知");
